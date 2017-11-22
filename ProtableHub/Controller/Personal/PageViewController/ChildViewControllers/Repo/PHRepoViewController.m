@@ -21,12 +21,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.dataSource = self.repoDataSource;
-    self.tableView.backgroundColor = UIColor.blueColor;
 }
 
 -(id)createDataSource {
     _repoDataSource = [[PHRepoDataSource alloc] init];
     return _repoDataSource;
+}
+
+-(void)pullDownToRefresh {
+    NSLog(@"下拉刷新");
 }
 
 @end

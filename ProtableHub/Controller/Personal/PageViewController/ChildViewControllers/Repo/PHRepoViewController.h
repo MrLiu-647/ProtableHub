@@ -6,8 +6,8 @@
 //  Copyright © 2017年 俞清源. All rights reserved.
 //
 
-#import "DTTableViewController.h"
+#import "DTRefreshTableViewController.h"
 
-@interface PHRepoViewController : DTTableViewController
+@interface PHRepoViewController : DTRefreshTableViewController
 
 @end

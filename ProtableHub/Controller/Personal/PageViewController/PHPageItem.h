@@ -15,6 +15,7 @@
 @property (nonatomic,copy) NSString *repoIntro;
 @property (nonatomic,copy) NSString *repoMainLanguage;
 @property (nonatomic,copy) NSString *repoDetails;
+@property (nonatomic,copy) NSString *repoAuthor;
 
 //followers
 @property (nonatomic,strong) NSData *followerIcon;

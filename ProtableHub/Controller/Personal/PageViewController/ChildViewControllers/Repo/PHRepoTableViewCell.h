@@ -13,6 +13,7 @@
 @property (nonatomic,strong) UILabel *repoName;
 @property (nonatomic,strong) UILabel *repoIntro;
 @property (nonatomic,strong) UILabel *repoMainLanguage;
+//可选,README.md里的信息
 @property (nonatomic,strong) UILabel *repoDetails;
 
 @end

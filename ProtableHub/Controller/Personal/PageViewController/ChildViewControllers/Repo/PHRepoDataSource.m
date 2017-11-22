@@ -12,6 +12,15 @@
 
 @implementation PHRepoDataSource
 
+-(instancetype)init {
+    self = [super init];
+    if(self) {
+        DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:[[PHPageItem alloc] initWithRepoName:@"ProtableHub" repoIntro:@"掌上Github" repoMainLanguage:@"Objective-C" repoDetails:nil], nil]];
+        self.sections = [NSMutableArray arrayWithObject:firstSection];
+    }
+    return self;
+}
+
 -(Class)getCurrentCellClass:(NSInteger)section {
     return [PHRepoTableViewCell class];
 }

@@ -28,4 +28,8 @@
     return _followerDataSource;
 }
 
+-(void)pullDownToRefresh {
+    NSLog(@"下拉刷新");
+}
+
 @end
