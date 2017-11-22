@@ -10,4 +10,9 @@
 
 @interface PHRepoTableViewCell : DTTableViewCell
 
+@property (nonatomic,strong) UILabel *repoName;
+@property (nonatomic,strong) UILabel *repoIntro;
+@property (nonatomic,strong) UILabel *repoMainLanguage;
+@property (nonatomic,strong) UILabel *repoDetails;
+
 @end

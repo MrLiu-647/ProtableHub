@@ -12,6 +12,15 @@
 
 @implementation PHFollowerDataSource
 
+-(instancetype)init {
+    self = [super init];
+    if(self) {
+        DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:[[PHPageItem alloc] initWithFollowerIcon:nil followerName:@"yuqingyuan" followerIntro:@"学生"], nil]];
+        self.sections = [NSMutableArray arrayWithObject:firstSection];
+    }
+    return self;
+}
+
 -(Class)getCurrentCellClass:(NSInteger)section {
     return [PHFollowerTableViewCell class];
 }

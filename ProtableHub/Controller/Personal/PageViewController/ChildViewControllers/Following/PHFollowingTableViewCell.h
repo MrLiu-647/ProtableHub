@@ -10,4 +10,8 @@
 
 @interface PHFollowingTableViewCell : DTTableViewCell
 
+@property (nonatomic,strong) UIImageView *followingIcon;
+@property (nonatomic,strong) UILabel *followingName;
+@property (nonatomic,strong) UILabel *followingIntro;
+
 @end

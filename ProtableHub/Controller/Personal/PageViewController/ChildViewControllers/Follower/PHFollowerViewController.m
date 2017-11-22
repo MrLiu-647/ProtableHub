@@ -21,7 +21,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.dataSource = self.followerDataSource;
-    self.tableView.backgroundColor = UIColor.greenColor;
 }
 
 -(id)createDataSource {
