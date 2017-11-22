@@ -46,27 +46,3 @@
 }
 
 @end
-
-@implementation PHRepositoryItem
-
--(instancetype)init {
-    self = [super init];
-    if(self) {
-        self.repoName = @"xxxxxxx";
-        self.repoLanguage = @"xxxxxxx";
-        self.briefIntro = @"xxxxxxx";
-    }
-    return self;
-}
-
--(instancetype)initWithRepoName:(NSString *)name language:(NSString *)language intro:(NSString *)intro {
-    self = [self init];
-    if(self) {
-        self.repoName = name;
-        self.repoLanguage = language;
-        self.briefIntro = intro;
-    }
-    return self;
-}
-
-@end

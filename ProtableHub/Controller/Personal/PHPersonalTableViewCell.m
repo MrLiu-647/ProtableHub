@@ -22,11 +22,11 @@
 -(void)buildCellStructure {
     self.userAvatars.frame = CGRectMake(10, 10, self.frame.size.height - 10, self.frame.size.height - 20);
     [self.contentView addSubview:self.userAvatars];
-    self.userName.frame = CGRectMake(10+self.userAvatars.frame.size.width+10, 10, 250 , self.userAvatars.frame.size.height/3.0);
+    self.userName.frame = CGRectMake(10+self.userAvatars.frame.size.width+10, 10, 200 , self.userAvatars.frame.size.height/3.0);
     [self.contentView addSubview:self.userName];
-    self.signature.frame = CGRectMake(10+self.userAvatars.frame.size.width+10, 10+self.userName.frame.size.height, 250 , self.userAvatars.frame.size.height/3.0);
+    self.signature.frame = CGRectMake(10+self.userAvatars.frame.size.width+10, 10+self.userName.frame.size.height, 200 , self.userAvatars.frame.size.height/3.0);
     [self.contentView addSubview:self.signature];
-    self.stars.frame = CGRectMake(10+self.userAvatars.frame.size.width+10, 10+self.userName.frame.size.height*2, 250 , self.userAvatars.frame.size.height/3.0);
+    self.stars.frame = CGRectMake(10+self.userAvatars.frame.size.width+10, 10+self.userName.frame.size.height*2, 200 , self.userAvatars.frame.size.height/3.0);
     [self.contentView addSubview:self.stars];
 }
 
@@ -119,10 +119,6 @@
 
 +(CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     return 60.0f;
-}
-
-+(CGFloat)tableView:(UITableView *)tableView headerHeightForSection:(NSInteger)section {
-    return 1.0f;
 }
 
 -(UILabel *)repositories {

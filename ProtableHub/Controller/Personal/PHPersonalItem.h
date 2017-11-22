@@ -34,14 +34,3 @@
                   following:(NSString *)following;
 
 @end
-
-//仓库信息
-@interface PHRepositoryItem : DTBasicItem
-
-@property (nonatomic,copy) NSString *repoName;
-@property (nonatomic,copy) NSString *repoLanguage;
-@property (nonatomic,copy) NSString *briefIntro;
-
--(instancetype)initWithRepoName:(NSString *)name language:(NSString *)language intro:(NSString *)intro;
-
-@end

@@ -15,7 +15,7 @@
 -(instancetype)init {
     self = [super init];
     if(self) {
-        DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:[[PHPersonalItem alloc] initWithMainInfo:nil userName:@"俞清源" signature:@"Hello World" star:@"10"],nil]];
+        DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:[[PHPersonalItem alloc] initWithMainInfo:nil userName:@"yuqingyuan" signature:@"Hello World" star:@"10"],nil]];
         DTSectionObject *secondSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:[[PHPersonalItem alloc] initWithFame:@"0" followers:@"0" following:@"0"],nil]];
         self.sections = [NSMutableArray arrayWithObject:firstSection];
         [self.sections addObject:secondSection];

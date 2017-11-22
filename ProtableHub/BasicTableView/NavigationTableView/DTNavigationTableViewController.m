@@ -17,7 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.fakeNavigationBar];
-    [self changeTableView];
+    if(self.tableViewFrame.origin.x < 0) {
+        [self changeTableView];
+    }
 }
 
 //修改tableView的尺寸

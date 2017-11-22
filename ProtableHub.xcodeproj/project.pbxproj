@@ -27,6 +27,18 @@
 		0522FF811FC417E80051C7DC /* PHPersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF801FC417E80051C7DC /* PHPersonalTableViewCell.m */; };
 		0522FF841FC418280051C7DC /* PHPersonalDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF831FC418280051C7DC /* PHPersonalDataSource.m */; };
 		0522FF871FC418630051C7DC /* PHPersonalItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF861FC418630051C7DC /* PHPersonalItem.m */; };
+		0522FF901FC558840051C7DC /* PHDataPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF8F1FC558840051C7DC /* PHDataPageViewController.m */; };
+		0522FF941FC55B850051C7DC /* PHRepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF931FC55B850051C7DC /* PHRepoViewController.m */; };
+		0522FF971FC55ED10051C7DC /* PHFollowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF961FC55ED10051C7DC /* PHFollowerViewController.m */; };
+		0522FF9A1FC56F490051C7DC /* PHFollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF991FC56F490051C7DC /* PHFollowingViewController.m */; };
+		0522FF9D1FC57FBC0051C7DC /* PHPageViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF9C1FC57FBC0051C7DC /* PHPageViewDataSource.m */; };
+		0522FFA31FC587F30051C7DC /* PHFollowerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFA21FC587F30051C7DC /* PHFollowerDataSource.m */; };
+		0522FFA61FC5880D0051C7DC /* PHFollowerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFA51FC5880D0051C7DC /* PHFollowerTableViewCell.m */; };
+		0522FFA91FC588960051C7DC /* PHRepoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFA81FC588960051C7DC /* PHRepoTableViewCell.m */; };
+		0522FFAC1FC588B00051C7DC /* PHRepoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFAB1FC588B00051C7DC /* PHRepoDataSource.m */; };
+		0522FFAF1FC5891A0051C7DC /* PHFollowingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFAE1FC5891A0051C7DC /* PHFollowingDataSource.m */; };
+		0522FFB21FC589380051C7DC /* PHFollowingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFB11FC589380051C7DC /* PHFollowingTableViewCell.m */; };
+		0522FFB51FC5909B0051C7DC /* PHPageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFB41FC5909B0051C7DC /* PHPageItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +100,30 @@
 		0522FF831FC418280051C7DC /* PHPersonalDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPersonalDataSource.m; sourceTree = "<group>"; };
 		0522FF851FC418630051C7DC /* PHPersonalItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPersonalItem.h; sourceTree = "<group>"; };
 		0522FF861FC418630051C7DC /* PHPersonalItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPersonalItem.m; sourceTree = "<group>"; };
+		0522FF8E1FC558840051C7DC /* PHDataPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHDataPageViewController.h; sourceTree = "<group>"; };
+		0522FF8F1FC558840051C7DC /* PHDataPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHDataPageViewController.m; sourceTree = "<group>"; };
+		0522FF921FC55B850051C7DC /* PHRepoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHRepoViewController.h; sourceTree = "<group>"; };
+		0522FF931FC55B850051C7DC /* PHRepoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHRepoViewController.m; sourceTree = "<group>"; };
+		0522FF951FC55ED10051C7DC /* PHFollowerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHFollowerViewController.h; sourceTree = "<group>"; };
+		0522FF961FC55ED10051C7DC /* PHFollowerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHFollowerViewController.m; sourceTree = "<group>"; };
+		0522FF981FC56F490051C7DC /* PHFollowingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHFollowingViewController.h; sourceTree = "<group>"; };
+		0522FF991FC56F490051C7DC /* PHFollowingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHFollowingViewController.m; sourceTree = "<group>"; };
+		0522FF9B1FC57FBC0051C7DC /* PHPageViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPageViewDataSource.h; sourceTree = "<group>"; };
+		0522FF9C1FC57FBC0051C7DC /* PHPageViewDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPageViewDataSource.m; sourceTree = "<group>"; };
+		0522FFA11FC587F30051C7DC /* PHFollowerDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHFollowerDataSource.h; sourceTree = "<group>"; };
+		0522FFA21FC587F30051C7DC /* PHFollowerDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHFollowerDataSource.m; sourceTree = "<group>"; };
+		0522FFA41FC5880D0051C7DC /* PHFollowerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHFollowerTableViewCell.h; sourceTree = "<group>"; };
+		0522FFA51FC5880D0051C7DC /* PHFollowerTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHFollowerTableViewCell.m; sourceTree = "<group>"; };
+		0522FFA71FC588960051C7DC /* PHRepoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHRepoTableViewCell.h; sourceTree = "<group>"; };
+		0522FFA81FC588960051C7DC /* PHRepoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHRepoTableViewCell.m; sourceTree = "<group>"; };
+		0522FFAA1FC588B00051C7DC /* PHRepoDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHRepoDataSource.h; sourceTree = "<group>"; };
+		0522FFAB1FC588B00051C7DC /* PHRepoDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHRepoDataSource.m; sourceTree = "<group>"; };
+		0522FFAD1FC5891A0051C7DC /* PHFollowingDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHFollowingDataSource.h; sourceTree = "<group>"; };
+		0522FFAE1FC5891A0051C7DC /* PHFollowingDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHFollowingDataSource.m; sourceTree = "<group>"; };
+		0522FFB01FC589380051C7DC /* PHFollowingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHFollowingTableViewCell.h; sourceTree = "<group>"; };
+		0522FFB11FC589380051C7DC /* PHFollowingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHFollowingTableViewCell.m; sourceTree = "<group>"; };
+		0522FFB31FC5909B0051C7DC /* PHPageItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPageItem.h; sourceTree = "<group>"; };
+		0522FFB41FC5909B0051C7DC /* PHPageItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPageItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +258,7 @@
 		0522FF7E1FC417C30051C7DC /* Personal */ = {
 			isa = PBXGroup;
 			children = (
+				0522FF8D1FC5586D0051C7DC /* PageViewController */,
 				0522FF851FC418630051C7DC /* PHPersonalItem.h */,
 				0522FF861FC418630051C7DC /* PHPersonalItem.m */,
 				0522FF821FC418280051C7DC /* PHPersonalDataSource.h */,
@@ -232,6 +269,69 @@
 				0522FF791FC417910051C7DC /* PHPersonalViewController.m */,
 			);
 			path = Personal;
+			sourceTree = "<group>";
+		};
+		0522FF8D1FC5586D0051C7DC /* PageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0522FF911FC55B5B0051C7DC /* ChildViewControllers */,
+				0522FFB31FC5909B0051C7DC /* PHPageItem.h */,
+				0522FFB41FC5909B0051C7DC /* PHPageItem.m */,
+				0522FF9B1FC57FBC0051C7DC /* PHPageViewDataSource.h */,
+				0522FF9C1FC57FBC0051C7DC /* PHPageViewDataSource.m */,
+				0522FF8E1FC558840051C7DC /* PHDataPageViewController.h */,
+				0522FF8F1FC558840051C7DC /* PHDataPageViewController.m */,
+			);
+			path = PageViewController;
+			sourceTree = "<group>";
+		};
+		0522FF911FC55B5B0051C7DC /* ChildViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0522FF9E1FC587AA0051C7DC /* Repo */,
+				0522FF9F1FC587B50051C7DC /* Follower */,
+				0522FFA01FC587C10051C7DC /* Following */,
+			);
+			path = ChildViewControllers;
+			sourceTree = "<group>";
+		};
+		0522FF9E1FC587AA0051C7DC /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				0522FFAA1FC588B00051C7DC /* PHRepoDataSource.h */,
+				0522FFAB1FC588B00051C7DC /* PHRepoDataSource.m */,
+				0522FFA71FC588960051C7DC /* PHRepoTableViewCell.h */,
+				0522FFA81FC588960051C7DC /* PHRepoTableViewCell.m */,
+				0522FF921FC55B850051C7DC /* PHRepoViewController.h */,
+				0522FF931FC55B850051C7DC /* PHRepoViewController.m */,
+			);
+			path = Repo;
+			sourceTree = "<group>";
+		};
+		0522FF9F1FC587B50051C7DC /* Follower */ = {
+			isa = PBXGroup;
+			children = (
+				0522FFA11FC587F30051C7DC /* PHFollowerDataSource.h */,
+				0522FFA21FC587F30051C7DC /* PHFollowerDataSource.m */,
+				0522FFA41FC5880D0051C7DC /* PHFollowerTableViewCell.h */,
+				0522FFA51FC5880D0051C7DC /* PHFollowerTableViewCell.m */,
+				0522FF951FC55ED10051C7DC /* PHFollowerViewController.h */,
+				0522FF961FC55ED10051C7DC /* PHFollowerViewController.m */,
+			);
+			path = Follower;
+			sourceTree = "<group>";
+		};
+		0522FFA01FC587C10051C7DC /* Following */ = {
+			isa = PBXGroup;
+			children = (
+				0522FFAD1FC5891A0051C7DC /* PHFollowingDataSource.h */,
+				0522FFAE1FC5891A0051C7DC /* PHFollowingDataSource.m */,
+				0522FFB01FC589380051C7DC /* PHFollowingTableViewCell.h */,
+				0522FFB11FC589380051C7DC /* PHFollowingTableViewCell.m */,
+				0522FF981FC56F490051C7DC /* PHFollowingViewController.h */,
+				0522FF991FC56F490051C7DC /* PHFollowingViewController.m */,
+			);
+			path = Following;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,21 +467,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				0522FF7A1FC417910051C7DC /* PHPersonalViewController.m in Sources */,
+				0522FFA91FC588960051C7DC /* PHRepoTableViewCell.m in Sources */,
 				0522FF6F1FC4171F0051C7DC /* DTSectionObject.m in Sources */,
+				0522FF9A1FC56F490051C7DC /* PHFollowingViewController.m in Sources */,
 				0522FF731FC4171F0051C7DC /* DTTableViewController.m in Sources */,
 				0522FF711FC4171F0051C7DC /* DTTableView.m in Sources */,
+				0522FF971FC55ED10051C7DC /* PHFollowerViewController.m in Sources */,
 				0522FF351FC40AA10051C7DC /* main.m in Sources */,
+				0522FFA61FC5880D0051C7DC /* PHFollowerTableViewCell.m in Sources */,
+				0522FFAC1FC588B00051C7DC /* PHRepoDataSource.m in Sources */,
 				0522FF701FC4171F0051C7DC /* DTTableView+PullUpRefresh.m in Sources */,
+				0522FFA31FC587F30051C7DC /* PHFollowerDataSource.m in Sources */,
+				0522FF941FC55B850051C7DC /* PHRepoViewController.m in Sources */,
 				0522FF871FC418630051C7DC /* PHPersonalItem.m in Sources */,
+				0522FFAF1FC5891A0051C7DC /* PHFollowingDataSource.m in Sources */,
 				0522FF7D1FC417BA0051C7DC /* PHTabBarController.m in Sources */,
 				0522FF721FC4171F0051C7DC /* DTTableViewCell.m in Sources */,
+				0522FFB21FC589380051C7DC /* PHFollowingTableViewCell.m in Sources */,
+				0522FF9D1FC57FBC0051C7DC /* PHPageViewDataSource.m in Sources */,
 				0522FF6E1FC4171F0051C7DC /* DTBasicItem.m in Sources */,
 				0522FF841FC418280051C7DC /* PHPersonalDataSource.m in Sources */,
+				0522FF901FC558840051C7DC /* PHDataPageViewController.m in Sources */,
 				0522FF811FC417E80051C7DC /* PHPersonalTableViewCell.m in Sources */,
 				0522FF761FC4171F0051C7DC /* DTRefreshTableViewController.m in Sources */,
 				0522FF271FC40AA10051C7DC /* AppDelegate.m in Sources */,
 				0522FF741FC4171F0051C7DC /* DTTableViewDataSource.m in Sources */,
 				0522FF751FC4171F0051C7DC /* DTNavigationTableViewController.m in Sources */,
+				0522FFB51FC5909B0051C7DC /* PHPageItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
