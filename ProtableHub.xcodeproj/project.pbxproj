@@ -39,6 +39,7 @@
 		0522FFAF1FC5891A0051C7DC /* PHFollowingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFAE1FC5891A0051C7DC /* PHFollowingDataSource.m */; };
 		0522FFB21FC589380051C7DC /* PHFollowingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFB11FC589380051C7DC /* PHFollowingTableViewCell.m */; };
 		0522FFB51FC5909B0051C7DC /* PHPageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFB41FC5909B0051C7DC /* PHPageItem.m */; };
+		0522FFB91FC68CBF0051C7DC /* DTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFB81FC68CBF0051C7DC /* DTAlertController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,8 @@
 		0522FFB11FC589380051C7DC /* PHFollowingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHFollowingTableViewCell.m; sourceTree = "<group>"; };
 		0522FFB31FC5909B0051C7DC /* PHPageItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPageItem.h; sourceTree = "<group>"; };
 		0522FFB41FC5909B0051C7DC /* PHPageItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPageItem.m; sourceTree = "<group>"; };
+		0522FFB71FC68CBF0051C7DC /* DTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTAlertController.h; sourceTree = "<group>"; };
+		0522FFB81FC68CBF0051C7DC /* DTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTAlertController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,7 @@
 		0522FF241FC40AA10051C7DC /* ProtableHub */ = {
 			isa = PBXGroup;
 			children = (
+				0522FFB61FC68CA60051C7DC /* AlertController */,
 				0522FF591FC4171F0051C7DC /* BasicTableView */,
 				0522FF771FC4172D0051C7DC /* Controller */,
 				0522FF251FC40AA10051C7DC /* AppDelegate.h */,
@@ -334,6 +338,15 @@
 			path = Following;
 			sourceTree = "<group>";
 		};
+		0522FFB61FC68CA60051C7DC /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				0522FFB71FC68CBF0051C7DC /* DTAlertController.h */,
+				0522FFB81FC68CBF0051C7DC /* DTAlertController.m */,
+			);
+			path = AlertController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -484,6 +497,7 @@
 				0522FF7D1FC417BA0051C7DC /* PHTabBarController.m in Sources */,
 				0522FF721FC4171F0051C7DC /* DTTableViewCell.m in Sources */,
 				0522FFB21FC589380051C7DC /* PHFollowingTableViewCell.m in Sources */,
+				0522FFB91FC68CBF0051C7DC /* DTAlertController.m in Sources */,
 				0522FF9D1FC57FBC0051C7DC /* PHPageViewDataSource.m in Sources */,
 				0522FF6E1FC4171F0051C7DC /* DTBasicItem.m in Sources */,
 				0522FF841FC418280051C7DC /* PHPersonalDataSource.m in Sources */,
