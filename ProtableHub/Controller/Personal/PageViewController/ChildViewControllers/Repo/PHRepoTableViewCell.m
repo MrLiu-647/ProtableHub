@@ -37,6 +37,10 @@
     return 80.0f;
 }
 
++(CGFloat)tableView:(UITableView *)tableView headerHeightForSection:(NSInteger)section {
+    return 20.0f;
+}
+
 -(UILabel *)repoName {
     if(!_repoName) {
         _repoName = [[UILabel alloc] init];

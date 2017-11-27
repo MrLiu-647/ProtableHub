@@ -48,4 +48,15 @@
     return ((DTSectionObject *)_sections[section]).items[row];
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return ((DTSectionObject *)_sections[section]).headTitle;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if(section == self.sections.count - 1) {
+        return ((DTSectionObject *)_sections[section]).footTitle;
+    }
+    return nil;
+}
+
 @end

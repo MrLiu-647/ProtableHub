@@ -21,6 +21,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.dataSource = self.followingDataSource;
+    self.view.backgroundColor = UIColor.blackColor;
+    self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 -(id)createDataSource {
@@ -30,10 +33,6 @@
 
 -(void)pullDownToRefresh {
     NSLog(@"下拉刷新");
-}
-
--(void)dealloc {
-    NSLog(@"dealloc");
 }
 
 @end

@@ -7,7 +7,25 @@
 		<key>ProtableHub.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0522FF211FC40AA10051C7DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0522FF391FC40AA10051C7DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0522FF441FC40AA10051C7DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

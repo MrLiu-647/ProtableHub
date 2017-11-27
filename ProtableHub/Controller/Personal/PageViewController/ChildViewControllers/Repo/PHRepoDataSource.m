@@ -16,6 +16,8 @@
     self = [super init];
     if(self) {
         DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:[[PHPageItem alloc] initWithRepoName:@"ProtableHub" repoIntro:@"掌上Github" repoMainLanguage:@"Objective-C" repoDetails:nil], nil]];
+        firstSection.headTitle = @"Repositories";
+        firstSection.footTitle = @"没有跟多内容了";
         self.sections = [NSMutableArray arrayWithObject:firstSection];
     }
     return self;

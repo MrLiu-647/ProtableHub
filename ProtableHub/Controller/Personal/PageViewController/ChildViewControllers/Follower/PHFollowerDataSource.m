@@ -16,6 +16,8 @@
     self = [super init];
     if(self) {
         DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:[[PHPageItem alloc] initWithFollowerIcon:nil followerName:@"yuqingyuan" followerIntro:@"学生"], nil]];
+        firstSection.headTitle = @"Followers";
+        firstSection.footTitle = @"没有跟多内容了";
         self.sections = [NSMutableArray arrayWithObject:firstSection];
     }
     return self;

@@ -8,29 +8,47 @@
 
 #import "PHPersonalTableViewCell.h"
 #import "PHPersonalItem.h"
+#import <Masonry.h>
 
 @implementation PHPersonalTableViewCell
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-    [self buildCellStructure];
 }
 
 -(void)buildCellStructure {
-    self.userAvatars.frame = CGRectMake(10, 10, self.frame.size.height - 10, self.frame.size.height - 20);
+    __weak typeof(self) weakSelf = self;
     [self.contentView addSubview:self.userAvatars];
-    self.userName.frame = CGRectMake(10+self.userAvatars.frame.size.width+10, 10, 200 , self.userAvatars.frame.size.height/3.0);
+    [self.userAvatars mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.mas_top).offset(5);
+        make.left.mas_equalTo(weakSelf.mas_left).offset(5);
+        make.size.mas_equalTo(CGSizeMake(80, 80));
+    }];
     [self.contentView addSubview:self.userName];
-    self.signature.frame = CGRectMake(10+self.userAvatars.frame.size.width+10, 10+self.userName.frame.size.height, 200 , self.userAvatars.frame.size.height/3.0);
+    [self.userName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.mas_top).offset(5);
+        make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(10);
+        make.size.mas_equalTo(CGSizeMake(200, 80/3.0));
+    }];
     [self.contentView addSubview:self.signature];
-    self.stars.frame = CGRectMake(10+self.userAvatars.frame.size.width+10, 10+self.userName.frame.size.height*2, 200 , self.userAvatars.frame.size.height/3.0);
+    [self.signature mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(weakSelf.userName);
+        make.top.mas_equalTo(weakSelf.userName.mas_bottom);
+        make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(10);
+    }];
     [self.contentView addSubview:self.stars];
+    [self.stars mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(weakSelf.userName);
+        make.top.mas_equalTo(weakSelf.signature.mas_bottom);
+        make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(10);
+    }];
 }
 
 -(void)setObject:(id)object {
+    [self buildCellStructure];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     self.userAvatars.image = [UIImage imageWithData:((PHPersonalItem *)object).userAvatars];
     self.userName.text = [[NSString alloc] initWithFormat:@"Name(%@)",((PHPersonalItem *)object).userName];
     self.signature.text = [[NSString alloc] initWithFormat:@"\"%@\"",((PHPersonalItem *)object).signature];
@@ -85,33 +103,61 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-    [self buildCellStructure];
 }
 
 -(void)buildCellStructure {
-    UILabel *signal;
-    self.repositories.frame = CGRectMake(10, 5, (self.frame.size.width-40)/3, (self.frame.size.height-10)/2);
-    signal = [[UILabel alloc] initWithFrame:CGRectMake(10, 5+(self.frame.size.height-10)/2, (self.frame.size.width-40)/3, (self.frame.size.height-10)/2)];
-    signal.text = @"Repositories";
-    signal.textAlignment = NSTextAlignmentCenter;
-    [self.contentView addSubview:signal];
+    __weak typeof(self) weakSelf = self;
+    UILabel *firstSignal = [[UILabel alloc] init];
     [self.contentView addSubview:self.repositories];
-    self.followers.frame = CGRectMake(10+(self.frame.size.width-40)/3+10, 5, (self.frame.size.width-40)/3, (self.frame.size.height-10)/2);
-    signal = [[UILabel alloc] initWithFrame:CGRectMake(10+(self.frame.size.width-40)/3+10, 5+(self.frame.size.height-10)/2, (self.frame.size.width-40)/3, (self.frame.size.height-10)/2)];
-    signal.text = @"Followers";
-    signal.textAlignment = NSTextAlignmentCenter;
-    [self.contentView addSubview:signal];
+    [self.contentView addSubview:firstSignal];
+    [self.repositories mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.mas_left).offset(1);
+        make.top.equalTo(weakSelf.mas_top);
+        make.height.equalTo(weakSelf.mas_height).multipliedBy(0.5f);
+        make.width.equalTo(weakSelf.mas_width).multipliedBy(0.33f);
+    }];
+    firstSignal.text = @"Repositories";
+    firstSignal.textAlignment = NSTextAlignmentCenter;
+    [firstSignal mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(weakSelf.repositories);
+        make.bottom.equalTo(weakSelf.mas_bottom);
+        make.left.equalTo(weakSelf.mas_left).offset(1);
+    }];
+    UILabel *secondSignal = [[UILabel alloc] init];
+    secondSignal.text = @"Followers";
+    secondSignal.textAlignment = NSTextAlignmentCenter;
+    [self.contentView addSubview:secondSignal];
     [self.contentView addSubview:self.followers];
-    self.following.frame = CGRectMake(10+((self.frame.size.width-40)/3)*2+10+10, 5, (self.frame.size.width-40)/3, (self.frame.size.height-10)/2);
-    signal = [[UILabel alloc] initWithFrame:CGRectMake(10+((self.frame.size.width-40)/3)*2+10+10, 5+(self.frame.size.height-10)/2, (self.frame.size.width-40)/3, (self.frame.size.height-10)/2)];
-    signal.text = @"Following";
-    signal.textAlignment = NSTextAlignmentCenter;
-    [self.contentView addSubview:signal];
+    [self.followers mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(weakSelf.repositories);
+        make.top.equalTo(weakSelf.mas_top);
+        make.left.equalTo(weakSelf.repositories.mas_right).offset(1);
+    }];
+    [secondSignal mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(weakSelf.repositories);
+        make.bottom.equalTo(weakSelf.mas_bottom);
+        make.left.equalTo(firstSignal.mas_right).offset(1);
+    }];
+    UILabel *thirdSignal = [[UILabel alloc] init];
+    thirdSignal.text = @"Followings";
+    thirdSignal.textAlignment = NSTextAlignmentCenter;
+    [self.contentView addSubview:thirdSignal];
     [self.contentView addSubview:self.following];
+    [self.following mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(weakSelf.repositories);
+        make.top.equalTo(weakSelf.mas_top);
+        make.left.equalTo(weakSelf.followers.mas_right).offset(1);
+    }];
+    [thirdSignal mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(weakSelf.repositories);
+        make.bottom.equalTo(weakSelf.mas_bottom);
+        make.left.equalTo(secondSignal.mas_right).offset(1);
+    }];
 }
 
 -(void)setObject:(id)object {
+    [self buildCellStructure];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.repositories.text = ((PHPersonalItem *)object).repositories;
     self.followers.text = ((PHPersonalItem *)object).followers;
     self.following.text = ((PHPersonalItem *)object).following;
@@ -119,6 +165,10 @@
 
 +(CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     return 60.0f;
+}
+
++(CGFloat)tableView:(UITableView *)tableView headerHeightForSection:(NSInteger)section {
+    return 1.0f;
 }
 
 -(UILabel *)repositories {

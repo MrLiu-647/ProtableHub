@@ -42,7 +42,7 @@
         _fakeNavigationBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.heightForNavigationBar)];
         _fakeNavigationBar.backgroundColor = self.dtBarColor;
         //设置透明度
-        [_fakeNavigationBar setAlpha:0.9];
+        [_fakeNavigationBar setAlpha:0.8f];
     }
     return _fakeNavigationBar;
 }
@@ -53,7 +53,7 @@
         CGPoint center = _navigationTitle.center;
         center.x = self.fakeNavigationBar.center.x;
         _navigationTitle.center = center;
-        _navigationTitle.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:22];
+        _navigationTitle.font = [UIFont fontWithName:@"HelveticaNeue" size:22];
         _navigationTitle.textAlignment = NSTextAlignmentCenter;
         [self.fakeNavigationBar addSubview:_navigationTitle];
     }
@@ -67,4 +67,5 @@
     return _dtBarColor;
 }
 @end
+
 

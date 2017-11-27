@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tableView.isNeedToHavePullDownAction = true;
-    self.tableView.isNeedToHavePullUpAction = true;
+    self.tableView.isNeedToHavePullUpAction = false;
 }
 
 //交给网络模块去处理

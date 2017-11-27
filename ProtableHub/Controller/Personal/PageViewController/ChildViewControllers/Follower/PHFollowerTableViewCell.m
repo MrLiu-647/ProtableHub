@@ -37,6 +37,10 @@
     return 60.0f;
 }
 
++(CGFloat)tableView:(UITableView *)tableView headerHeightForSection:(NSInteger)section {
+    return 20.0f;
+}
+
 -(UIImageView *)followerIcon {
     if(!_followerIcon) {
         _followerIcon = [[UIImageView alloc] init];

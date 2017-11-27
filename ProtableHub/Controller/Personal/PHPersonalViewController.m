@@ -10,7 +10,7 @@
 #import "PHPersonalDataSource.h"
 #import "PHDataPageViewController.h"
 
-#define HeightForNavigationBar UIScreen.mainScreen.bounds.size.height/11
+#define HeightForNavigationBar UIScreen.mainScreen.bounds.size.height/10
 
 @interface PHPersonalViewController ()
 
@@ -31,7 +31,7 @@
     [super viewDidLoad];
     [self.tableView setScrollEnabled:false];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = UIColor.lightGrayColor;
+    self.view.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
     
     //添加子视图
     self.childPageView = self.pageVC.view;
@@ -39,7 +39,7 @@
     if(UIScreen.mainScreen.bounds.size.height != 812.0) {
         realHeight += 34;
     }
-    self.childPageView.frame = CGRectMake(0, HeightForNavigationBar+160, self.view.bounds.size.width,realHeight);
+    self.childPageView.frame = CGRectMake(0, HeightForNavigationBar + 160, self.view.bounds.size.width,realHeight);
     [self.view addSubview:self.childPageView];
 }
 

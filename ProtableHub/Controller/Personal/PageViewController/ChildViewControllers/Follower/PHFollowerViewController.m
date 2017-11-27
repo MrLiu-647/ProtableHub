@@ -21,6 +21,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.dataSource = self.followerDataSource;
+    self.view.backgroundColor = UIColor.blackColor;
+    self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 -(id)createDataSource {

@@ -10,6 +10,9 @@
 
 @interface DTSectionObject : NSObject
 
+@property (nonatomic,strong) NSString *headTitle;
+@property (nonatomic,strong) NSString *footTitle;
+
 //一个section的内容,数组元素为Item对象
 @property (nonatomic, retain) NSMutableArray *items;
 

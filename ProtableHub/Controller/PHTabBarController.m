@@ -9,9 +9,13 @@
 #import "PHTabBarController.h"
 #import "PHPersonalViewController.h"
 
+#import "DTBaseModel.h"
+
 @interface PHTabBarController ()
 
 @property (nonatomic,strong) PHPersonalViewController *personalVC;
+
+@property (nonatomic,strong) DTBaseModel *model;
 
 @end
 
@@ -21,6 +25,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.viewControllers = @[self.personalVC];
+    
+    self.model = [[DTBaseModel alloc] initWithServerAddress:@"https://api.github.com/" route:@"users/halfrost/following"];
+    [self.model lanuchRequestWithParams:nil requestMethod:PH_REQUEST_GET];
 }
 
 -(PHPersonalViewController *)personalVC {
