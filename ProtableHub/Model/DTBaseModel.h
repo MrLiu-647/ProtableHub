@@ -19,8 +19,8 @@
 @property (nonatomic,assign) PHRequestMethod method;
 @property (nonatomic,copy) NSDictionary *params;
 
--(instancetype)initWithServerAddress:(NSString *)address route:(NSString *)api;
+-(instancetype)initWithServerAddress:(NSString *)address;
 
--(void)lanuchRequestWithParams:(NSDictionary *)params requestMethod:(PHRequestMethod)method;
+-(void)lanuchRequestWithParams:(NSDictionary *)params requestMethod:(PHRequestMethod)method route:(NSString *)api;
 
 @end

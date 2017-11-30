@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050B89891FCE9F5D00AA2A11 /* PHPersonalNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050B89881FCE9F5D00AA2A11 /* PHPersonalNavigationViewController.m */; };
 		051223821FCAA096005EFBE6 /* DTBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 051223811FCAA096005EFBE6 /* DTBaseItem.m */; };
+		051223F21FCD464C005EFBE6 /* PHPersonalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 051223F11FCD464C005EFBE6 /* PHPersonalModel.m */; };
+		051223F61FCD4A60005EFBE6 /* PHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051223F51FCD4A60005EFBE6 /* PHWebViewController.m */; };
 		0522FF271FC40AA10051C7DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF261FC40AA10051C7DC /* AppDelegate.m */; };
 		0522FF2F1FC40AA10051C7DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0522FF2E1FC40AA10051C7DC /* Assets.xcassets */; };
 		0522FF351FC40AA10051C7DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF341FC40AA10051C7DC /* main.m */; };
@@ -64,8 +67,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		050B89871FCE9F5D00AA2A11 /* PHPersonalNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPersonalNavigationViewController.h; sourceTree = "<group>"; };
+		050B89881FCE9F5D00AA2A11 /* PHPersonalNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPersonalNavigationViewController.m; sourceTree = "<group>"; };
 		051223801FCAA096005EFBE6 /* DTBaseItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTBaseItem.h; sourceTree = "<group>"; };
 		051223811FCAA096005EFBE6 /* DTBaseItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTBaseItem.m; sourceTree = "<group>"; };
+		051223F01FCD464C005EFBE6 /* PHPersonalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPersonalModel.h; sourceTree = "<group>"; };
+		051223F11FCD464C005EFBE6 /* PHPersonalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPersonalModel.m; sourceTree = "<group>"; };
+		051223F41FCD4A60005EFBE6 /* PHWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHWebViewController.h; sourceTree = "<group>"; };
+		051223F51FCD4A60005EFBE6 /* PHWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHWebViewController.m; sourceTree = "<group>"; };
 		0522FF221FC40AA10051C7DC /* ProtableHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtableHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0522FF251FC40AA10051C7DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0522FF261FC40AA10051C7DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -168,6 +177,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		051223F31FCD4A28005EFBE6 /* EmbeddedWebView */ = {
+			isa = PBXGroup;
+			children = (
+				051223F41FCD4A60005EFBE6 /* PHWebViewController.h */,
+				051223F51FCD4A60005EFBE6 /* PHWebViewController.m */,
+			);
+			path = EmbeddedWebView;
+			sourceTree = "<group>";
+		};
 		0522FF191FC40AA10051C7DC = {
 			isa = PBXGroup;
 			children = (
@@ -193,9 +211,9 @@
 		0522FF241FC40AA10051C7DC /* ProtableHub */ = {
 			isa = PBXGroup;
 			children = (
-				05E493251FC931B00090250D /* Model */,
 				0522FFB61FC68CA60051C7DC /* AlertController */,
 				0522FF591FC4171F0051C7DC /* BasicTableView */,
+				05E493251FC931B00090250D /* Model */,
 				0522FF771FC4172D0051C7DC /* Controller */,
 				0522FF251FC40AA10051C7DC /* AppDelegate.h */,
 				0522FF261FC40AA10051C7DC /* AppDelegate.m */,
@@ -269,6 +287,7 @@
 		0522FF771FC4172D0051C7DC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				051223F31FCD4A28005EFBE6 /* EmbeddedWebView */,
 				0522FF7E1FC417C30051C7DC /* Personal */,
 				0522FF7B1FC417BA0051C7DC /* PHTabBarController.h */,
 				0522FF7C1FC417BA0051C7DC /* PHTabBarController.m */,
@@ -282,12 +301,16 @@
 				0522FF8D1FC5586D0051C7DC /* PageViewController */,
 				0522FF851FC418630051C7DC /* PHPersonalItem.h */,
 				0522FF861FC418630051C7DC /* PHPersonalItem.m */,
+				051223F01FCD464C005EFBE6 /* PHPersonalModel.h */,
+				051223F11FCD464C005EFBE6 /* PHPersonalModel.m */,
 				0522FF821FC418280051C7DC /* PHPersonalDataSource.h */,
 				0522FF831FC418280051C7DC /* PHPersonalDataSource.m */,
 				0522FF7F1FC417E80051C7DC /* PHPersonalTableViewCell.h */,
 				0522FF801FC417E80051C7DC /* PHPersonalTableViewCell.m */,
 				0522FF781FC417910051C7DC /* PHPersonalViewController.h */,
 				0522FF791FC417910051C7DC /* PHPersonalViewController.m */,
+				050B89871FCE9F5D00AA2A11 /* PHPersonalNavigationViewController.h */,
+				050B89881FCE9F5D00AA2A11 /* PHPersonalNavigationViewController.m */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -599,16 +622,19 @@
 				0522FF721FC4171F0051C7DC /* DTTableViewCell.m in Sources */,
 				0522FFB21FC589380051C7DC /* PHFollowingTableViewCell.m in Sources */,
 				0522FFB91FC68CBF0051C7DC /* DTAlertController.m in Sources */,
+				050B89891FCE9F5D00AA2A11 /* PHPersonalNavigationViewController.m in Sources */,
 				0522FF9D1FC57FBC0051C7DC /* PHPageViewDataSource.m in Sources */,
 				0522FF6E1FC4171F0051C7DC /* DTBasicItem.m in Sources */,
 				0522FF841FC418280051C7DC /* PHPersonalDataSource.m in Sources */,
 				0522FF901FC558840051C7DC /* PHDataPageViewController.m in Sources */,
 				0522FF811FC417E80051C7DC /* PHPersonalTableViewCell.m in Sources */,
+				051223F61FCD4A60005EFBE6 /* PHWebViewController.m in Sources */,
 				0522FF761FC4171F0051C7DC /* DTRefreshTableViewController.m in Sources */,
 				0522FF271FC40AA10051C7DC /* AppDelegate.m in Sources */,
 				0522FF741FC4171F0051C7DC /* DTTableViewDataSource.m in Sources */,
 				0522FF751FC4171F0051C7DC /* DTNavigationTableViewController.m in Sources */,
 				0522FFB51FC5909B0051C7DC /* PHPageItem.m in Sources */,
+				051223F21FCD464C005EFBE6 /* PHPersonalModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

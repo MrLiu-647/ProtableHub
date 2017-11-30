@@ -20,6 +20,7 @@
     // Override point for customization after application launch.
     PHTabBarController *rootVC = [[PHTabBarController alloc] init];
     self.window.rootViewController = rootVC;
+    
     return YES;
 }
 

@@ -15,17 +15,17 @@
 
 @implementation DTBaseModel
 
--(instancetype)initWithServerAddress:(NSString *)address route:(NSString *)api {
+-(instancetype)initWithServerAddress:(NSString *)address {
     self = [super init];
     if(self) {
-        self.api = api;
         self.address = address;
         self.serverAPI = [[DTBaseServerAPI alloc] initWithServer:address];
     }
     return self;
 }
 
--(void)lanuchRequestWithParams:(NSDictionary *)params requestMethod:(PHRequestMethod)method {
+-(void)lanuchRequestWithParams:(NSDictionary *)params requestMethod:(PHRequestMethod)method route:(NSString *)api {
+    self.api = api;
     self.params = params;
     self.method = method;
     __weak typeof(self) weakSelf = self;
@@ -37,7 +37,12 @@
 
 -(void)isNeedToHandleData:(DTBaseServerAPI *)response {
     if(response.state == PH_STATE_SUCCESS) {
-        [self handleResponseData:response.jsonData];
+        if([NSJSONSerialization isValidJSONObject:response.rawData]) {
+            [self handleResponseData:response.jsonData];
+        }
+        else {
+            [self handleResponseData:response.rawData];
+        }
     }
 }
 

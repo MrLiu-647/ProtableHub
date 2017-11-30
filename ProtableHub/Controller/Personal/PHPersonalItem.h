@@ -6,10 +6,10 @@
 //  Copyright © 2017年 俞清源. All rights reserved.
 //
 
-#import "DTBasicItem.h"
+#import "DTBaseItem.h"
 
 //个人信息
-@interface PHPersonalItem : DTBasicItem
+@interface PHPersonalItem : DTBaseItem
 
 @property (nonatomic,strong) NSData *userAvatars;
 @property (nonatomic,copy) NSString *userName;

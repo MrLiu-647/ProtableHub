@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DTBasicItem.h"
 
-@interface DTBaseItem : NSObject
-
-@property (nonatomic,strong) NSString *id;
+@interface DTBaseItem : DTBasicItem
 
 -(void)addMappingRuleProperty:(NSString *)propertyName pathInJson:(NSString *)path;
 

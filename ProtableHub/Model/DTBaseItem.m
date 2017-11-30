@@ -16,14 +16,6 @@
 
 @implementation DTBaseItem
 
--(instancetype)init {
-    self = [super init];
-    if(self) {
-        [self addMappingRuleProperty:@"id" pathInJson:@"id"];
-    }
-    return self;
-}
-
 -(NSMutableDictionary *)jsonDataMap {
     if(!_jsonDataMap) {
         _jsonDataMap = [[NSMutableDictionary alloc] init];

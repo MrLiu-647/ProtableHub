@@ -6,8 +6,8 @@
 //  Copyright © 2017年 俞清源. All rights reserved.
 //
 
-#import "DTNavigationTableViewController.h"
+#import "DTTableViewController.h"
 
-@interface PHPersonalViewController : DTNavigationTableViewController
+@interface PHPersonalViewController : DTTableViewController
 
 @end
