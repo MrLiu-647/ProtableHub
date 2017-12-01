@@ -64,11 +64,12 @@
 }
 
 -(void)getAccesstokenThroughCode:(NSNotification *)notification {
+    PHPersonalModel.sharedInstance.serverAPI.server = @"https://github.com";
     [PHPersonalModel.sharedInstance lanuchRequestWithParams:@{@"client_id":ClientID,
-                                                              @"client_secret":ClientSecret,
-                                                              @"code":[notification userInfo][@"code"]}
-                                              requestMethod:PH_REQUEST_POST
-                                                      route:@"login/oauth/access_token"];
+                                                @"client_secret":ClientSecret,
+                                                @"code":[notification userInfo][@"code"]
+                              } requestMethod:PH_REQUEST_POST
+                                        route:@"login/oauth/access_token"];
 }
 
 -(void)dealloc {

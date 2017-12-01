@@ -7,7 +7,13 @@
 //
 
 #import "PHPersonalModel.h"
-#import "PHPersonalItem.h"
+
+//完整的打印Json信息
+#ifdef DEBUG
+#define SLog(format, ...) printf("class: <%p %s:(%d) > method: %s \n%s\n", self, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __PRETTY_FUNCTION__, [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String] )
+#else
+#define SLog(format, ...)
+#endif
 
 @implementation PHPersonalModel
 
@@ -23,14 +29,28 @@
 }
 
 -(void)handleResponseData:(id)response {
-    if([response classForCoder] == [NSData class]) {
-        NSString *responseString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-        self.accessToken = responseString;
+    if([NSJSONSerialization isValidJSONObject:response]) {
+        SLog(@"合格的Json格式%@",response);
+    }
+    else {
+        self.accessToken = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+        self.serverAPI.server = @"https://api.github.com";
+        [self lanuchRequestWithParams:nil requestMethod:PH_REQUEST_GET route:[[NSString alloc] initWithFormat:@"/user?%@",self.accessToken]];
     }
 }
 
--(Class)getCurrentItemClass {
-    return [PHPersonalItem class];
+-(PHPersonalItem *)basicInfo {
+    if(!_basicInfo) {
+        _basicInfo = [[PHPersonalItem alloc] initWithMainInfo:nil userName:@"*" signature:@"*" star:@"*"];
+    }
+    return _basicInfo;
+}
+
+-(PHPersonalItem *)detailInfo {
+    if(!_detailInfo) {
+        _detailInfo = [[PHPersonalItem alloc] initWithFame:@"*" followers:@"*" following:@"*"];
+    }
+    return _detailInfo;
 }
 
 @end

@@ -37,7 +37,7 @@
 
 -(void)isNeedToHandleData:(DTBaseServerAPI *)response {
     if(response.state == PH_STATE_SUCCESS) {
-        if([NSJSONSerialization isValidJSONObject:response.rawData]) {
+        if(response.jsonData) {
             [self handleResponseData:response.jsonData];
         }
         else {

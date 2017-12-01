@@ -7,10 +7,13 @@
 //
 
 #import "DTBaseModel.h"
+#import "PHPersonalItem.h"
 
 @interface PHPersonalModel : DTBaseModel
 
 @property (nonatomic,copy) NSString *accessToken;   //向服务请求得到的Access Token
+
+@property (nonatomic,strong) PHPersonalItem *basicInfo,*detailInfo;
 
 +(PHPersonalModel *)sharedInstance;
 

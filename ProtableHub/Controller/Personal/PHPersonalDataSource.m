@@ -8,15 +8,15 @@
 
 #import "PHPersonalDataSource.h"
 #import "PHPersonalTableViewCell.h"
-#import "PHPersonalItem.h"
+#import "PHPersonalModel.h"
 
 @implementation PHPersonalDataSource
 
 -(instancetype)init {
     self = [super init];
     if(self) {
-        DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:[[PHPersonalItem alloc] initWithMainInfo:nil userName:@"******" signature:@"******" star:@"******"],nil]];
-        DTSectionObject *secondSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:[[PHPersonalItem alloc] initWithFame:@"*" followers:@"*" following:@"*"],nil]];
+        DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:PHPersonalModel.sharedInstance.basicInfo,nil]];
+        DTSectionObject *secondSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:PHPersonalModel.sharedInstance.detailInfo,nil]];
         self.sections = [NSMutableArray arrayWithObject:firstSection];
         [self.sections addObject:secondSection];
     }
