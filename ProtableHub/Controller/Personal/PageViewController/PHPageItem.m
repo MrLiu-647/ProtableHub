@@ -13,18 +13,18 @@
 -(instancetype)init {
     self = [super init];
     if(self) {
-        self.repoName = @"xxxxxxx";
-        self.repoIntro = @"xxxxxxx";
-        self.repoDetails = @"xxxxxxx";
-        self.repoMainLanguage = @"xxxxxxx";
+        self.repoName = @"*";
+        self.repoIntro = @"*";
+        self.repoDetails = @"*";
+        self.repoMainLanguage = @"*";
         
         self.followerIcon = nil;
-        self.followerName = @"xxxxxxx";
-        self.followerIntro = @"xxxxxxx";
+        self.followerName = @"*";
+        self.followerIntro = @"*";
         
         self.followingIcon = nil;
-        self.followingName = @"xxxxxxx";
-        self.followingIntro = @"xxxxxxx";
+        self.followingName = @"*";
+        self.followingIntro = @"*";
     }
     return self;
 }

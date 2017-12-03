@@ -10,4 +10,6 @@
 
 @interface PHDataPageViewController : UIPageViewController
 
+-(void)refreshCurrentPage;
+
 @end

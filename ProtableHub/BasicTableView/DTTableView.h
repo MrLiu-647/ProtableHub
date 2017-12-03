@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DTTableViewDataSource.h"
 
-typedef void(^FetchSuccess)(void);
-typedef void(^FetchFailed)(void);
-
 @protocol DTTableViewDelegate<UITableViewDelegate>
 
 @optional
@@ -19,9 +16,7 @@ typedef void(^FetchFailed)(void);
 -(void)didSelectObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
 
 //下拉刷新
--(void)pullDownToRefresh;
-//上拉刷新
--(void)pullUpToRefresh:(FetchSuccess)successHandler fail:(FetchFailed)failedHandler;
+-(void)pullDownToRefresh:(UIRefreshControl *)refreshControl;
 
 @end
 

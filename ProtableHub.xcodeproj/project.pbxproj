@@ -19,7 +19,6 @@
 		0522FF581FC416820051C7DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0522FF571FC416820051C7DC /* LaunchScreen.storyboard */; };
 		0522FF6E1FC4171F0051C7DC /* DTBasicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF5B1FC4171F0051C7DC /* DTBasicItem.m */; };
 		0522FF6F1FC4171F0051C7DC /* DTSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF5D1FC4171F0051C7DC /* DTSectionObject.m */; };
-		0522FF701FC4171F0051C7DC /* DTTableView+PullUpRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF5F1FC4171F0051C7DC /* DTTableView+PullUpRefresh.m */; };
 		0522FF711FC4171F0051C7DC /* DTTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF611FC4171F0051C7DC /* DTTableView.m */; };
 		0522FF721FC4171F0051C7DC /* DTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF631FC4171F0051C7DC /* DTTableViewCell.m */; };
 		0522FF731FC4171F0051C7DC /* DTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FF651FC4171F0051C7DC /* DTTableViewController.m */; };
@@ -92,8 +91,6 @@
 		0522FF5B1FC4171F0051C7DC /* DTBasicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTBasicItem.m; sourceTree = "<group>"; };
 		0522FF5C1FC4171F0051C7DC /* DTSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTSectionObject.h; sourceTree = "<group>"; };
 		0522FF5D1FC4171F0051C7DC /* DTSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTSectionObject.m; sourceTree = "<group>"; };
-		0522FF5E1FC4171F0051C7DC /* DTTableView+PullUpRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DTTableView+PullUpRefresh.h"; sourceTree = "<group>"; };
-		0522FF5F1FC4171F0051C7DC /* DTTableView+PullUpRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DTTableView+PullUpRefresh.m"; sourceTree = "<group>"; };
 		0522FF601FC4171F0051C7DC /* DTTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTableView.h; sourceTree = "<group>"; };
 		0522FF611FC4171F0051C7DC /* DTTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTableView.m; sourceTree = "<group>"; };
 		0522FF621FC4171F0051C7DC /* DTTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTableViewCell.h; sourceTree = "<group>"; };
@@ -213,7 +210,6 @@
 			children = (
 				0522FFB61FC68CA60051C7DC /* AlertController */,
 				0522FF591FC4171F0051C7DC /* BasicTableView */,
-				05E493251FC931B00090250D /* Model */,
 				0522FF771FC4172D0051C7DC /* Controller */,
 				0522FF251FC40AA10051C7DC /* AppDelegate.h */,
 				0522FF261FC40AA10051C7DC /* AppDelegate.m */,
@@ -250,8 +246,6 @@
 				0522FF5B1FC4171F0051C7DC /* DTBasicItem.m */,
 				0522FF5C1FC4171F0051C7DC /* DTSectionObject.h */,
 				0522FF5D1FC4171F0051C7DC /* DTSectionObject.m */,
-				0522FF5E1FC4171F0051C7DC /* DTTableView+PullUpRefresh.h */,
-				0522FF5F1FC4171F0051C7DC /* DTTableView+PullUpRefresh.m */,
 				0522FF601FC4171F0051C7DC /* DTTableView.h */,
 				0522FF611FC4171F0051C7DC /* DTTableView.m */,
 				0522FF621FC4171F0051C7DC /* DTTableViewCell.h */,
@@ -262,6 +256,7 @@
 				0522FF651FC4171F0051C7DC /* DTTableViewController.m */,
 				0522FF681FC4171F0051C7DC /* NavigationTableView */,
 				0522FF6B1FC4171F0051C7DC /* RefreshTableView */,
+				05E493251FC931B00090250D /* Model */,
 			);
 			path = BasicTableView;
 			sourceTree = "<group>";
@@ -613,7 +608,6 @@
 				0522FF351FC40AA10051C7DC /* main.m in Sources */,
 				0522FFA61FC5880D0051C7DC /* PHFollowerTableViewCell.m in Sources */,
 				0522FFAC1FC588B00051C7DC /* PHRepoDataSource.m in Sources */,
-				0522FF701FC4171F0051C7DC /* DTTableView+PullUpRefresh.m in Sources */,
 				0522FFA31FC587F30051C7DC /* PHFollowerDataSource.m in Sources */,
 				0522FF941FC55B850051C7DC /* PHRepoViewController.m in Sources */,
 				0522FF871FC418630051C7DC /* PHPersonalItem.m in Sources */,

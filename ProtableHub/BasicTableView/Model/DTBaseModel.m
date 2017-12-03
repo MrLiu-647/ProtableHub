@@ -24,10 +24,13 @@
     return self;
 }
 
--(void)lanuchRequestWithParams:(NSDictionary *)params requestMethod:(PHRequestMethod)method route:(NSString *)api {
+-(void)lanuchRequestWithParams:(NSDictionary *)params requestMethod:(PHRequestMethod)method route:(NSString *)api handler:(SuccessHandler)handler {
     self.api = api;
     self.params = params;
     self.method = method;
+    if(handler) {
+        self.successBlock = handler;
+    }
     __weak typeof(self) weakSelf = self;
     [self.serverAPI requestAPI:self.api params:self.params files:nil requestMethod:self.method completionBlock:^(DTBaseServerAPI *response) {
         __strong typeof(weakSelf) strongSelf = weakSelf;

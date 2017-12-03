@@ -8,7 +8,6 @@
 
 #import "DTTableView.h"
 #import "DTTableViewCell.h"
-#import "DTTableView+PullUpRefresh.h"
 
 @implementation DTTableView
 
@@ -67,20 +66,8 @@
     }
     _isNeedToHavePullDownAction = isNeedToHavePullDownAction;
     if(_isNeedToHavePullDownAction) {
-        if([self.dtDelegate respondsToSelector:@selector(pullDownToRefresh)]) {
+        if([self.dtDelegate respondsToSelector:@selector(pullDownToRefresh:)]) {
             [self createRefreshControl];
-        }
-    }
-}
-
--(void)setIsNeedToHavePullUpAction:(BOOL)isNeedToHavePullUpAction {
-    if(_isNeedToHavePullUpAction == isNeedToHavePullUpAction) {
-        return;
-    }
-    _isNeedToHavePullUpAction = isNeedToHavePullUpAction;
-    if(_isNeedToHavePullUpAction) {
-        if([self.dtDelegate respondsToSelector:@selector(pullUpToRefresh:fail:)]) {
-            [self addPullUpRefreshAction];
         }
     }
 }
@@ -88,7 +75,7 @@
 -(void)createRefreshControl {
     if(!_refreshAction) {
         _refreshAction = [[UIRefreshControl alloc] init];
-        [_refreshAction addTarget:self.dtDelegate action:@selector(pullDownToRefresh) forControlEvents:UIControlEventValueChanged];
+        [_refreshAction addTarget:self.dtDelegate action:@selector(pullDownToRefresh:) forControlEvents:UIControlEventValueChanged];
         self.refreshControl = _refreshAction;
     }
 }

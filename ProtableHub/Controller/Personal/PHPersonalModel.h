@@ -13,7 +13,8 @@
 
 @property (nonatomic,copy) NSString *accessToken;   //向服务请求得到的Access Token
 
-@property (nonatomic,strong) PHPersonalItem *basicInfo,*detailInfo;
+@property (nonatomic,strong) PHPersonalItem *basicInfo;
+@property (nonatomic,strong) PHPersonalDetailItem *detailInfo;
 
 +(PHPersonalModel *)sharedInstance;
 

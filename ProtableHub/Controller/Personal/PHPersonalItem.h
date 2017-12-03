@@ -20,14 +20,18 @@
 @property (nonatomic,copy) NSString *userMail;
 @property (nonatomic,copy) NSString *userLocation;
 
-@property (nonatomic,copy) NSString *followers;
-@property (nonatomic,copy) NSString *following;
-@property (nonatomic,copy) NSString *repositories;
-
 -(instancetype)initWithMainInfo:(NSData *)avatars
                        userName:(NSString *)name
                       signature:(NSString *)signature
                            star:(NSString *)stars;
+
+@end
+
+@interface PHPersonalDetailItem : DTBaseItem
+
+@property (nonatomic,copy) NSString *followers;
+@property (nonatomic,copy) NSString *following;
+@property (nonatomic,copy) NSString *repositories;
 
 -(instancetype)initWithFame:(NSString *)repositories
                   followers:(NSString *)followers

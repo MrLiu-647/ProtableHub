@@ -31,24 +31,27 @@
 -(void)handleResponseData:(id)response {
     if([NSJSONSerialization isValidJSONObject:response]) {
         SLog(@"合格的Json格式%@",response);
+        if(self.successBlock) {
+            self.successBlock();
+        }
     }
     else {
         self.accessToken = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
         self.serverAPI.server = @"https://api.github.com";
-        [self lanuchRequestWithParams:nil requestMethod:PH_REQUEST_GET route:[[NSString alloc] initWithFormat:@"/user?%@",self.accessToken]];
+        [self lanuchRequestWithParams:nil requestMethod:PH_REQUEST_GET route:[[NSString alloc] initWithFormat:@"/user?%@",self.accessToken] handler:nil];
     }
 }
 
 -(PHPersonalItem *)basicInfo {
     if(!_basicInfo) {
-        _basicInfo = [[PHPersonalItem alloc] initWithMainInfo:nil userName:@"*" signature:@"*" star:@"*"];
+        _basicInfo = [[PHPersonalItem alloc] init];
     }
     return _basicInfo;
 }
 
--(PHPersonalItem *)detailInfo {
+-(PHPersonalDetailItem *)detailInfo {
     if(!_detailInfo) {
-        _detailInfo = [[PHPersonalItem alloc] initWithFame:@"*" followers:@"*" following:@"*"];
+        _detailInfo = [[PHPersonalDetailItem alloc] init];
     }
     return _detailInfo;
 }

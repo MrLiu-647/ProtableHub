@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "DTBaseServerAPI.h"
 
+typedef void(^SuccessHandler)(void);
+
 @interface DTBaseModel : NSObject
 
 @property (nonatomic,strong) DTBaseServerAPI *serverAPI;
@@ -19,8 +21,11 @@
 @property (nonatomic,assign) PHRequestMethod method;
 @property (nonatomic,copy) NSDictionary *params;
 
+@property (nonatomic,copy) SuccessHandler successBlock;
+
 -(instancetype)initWithServerAddress:(NSString *)address;
 
--(void)lanuchRequestWithParams:(NSDictionary *)params requestMethod:(PHRequestMethod)method route:(NSString *)api;
+-(void)lanuchRequestWithParams:(NSDictionary *)params requestMethod:(PHRequestMethod)method route:(NSString *)api handler:(SuccessHandler)handler;
 
 @end
+

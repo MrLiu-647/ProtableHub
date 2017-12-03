@@ -143,8 +143,4 @@
     return true;
 }
 
--(void)dealloc {
-    NSLog(@"AlertView 被释放");
-}
-
 @end

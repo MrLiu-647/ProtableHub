@@ -14,18 +14,15 @@
     self = [super init];
     if(self) {
         self.userAvatars = nil;
-        self.userName = @"xxxxxxx";
-        self.signature = @"xxxxxxx";
-        self.stars = @"xxxxxxx";
-        self.repositories = @"0";
-        self.followers = @"0";
-        self.following = @"0";
+        self.userName = @"*";
+        self.signature = @"*";
+        self.stars = @"*";
     }
     return self;
 }
 
 -(instancetype)initWithMainInfo:(NSData *)avatars userName:(NSString *)name signature:(NSString *)signature star:(NSString *)stars {
-    self = [self init];
+    self = [super init];
     if(self) {
         self.userAvatars = avatars;
         self.userName = name;
@@ -35,8 +32,22 @@
     return self;
 }
 
+@end
+
+@implementation PHPersonalDetailItem
+
+-(instancetype)init {
+    self = [super init];
+    if(self) {
+        self.repositories = @"*";
+        self.followers = @"*";
+        self.following = @"*";
+    }
+    return self;
+}
+
 -(instancetype)initWithFame:(NSString *)repositories followers:(NSString *)followers following:(NSString *)following {
-    self = [self initWithMainInfo:self.userAvatars userName:self.userName signature:self.signature star:self.stars];
+    self = [super init];
     if(self) {
         self.repositories = repositories;
         self.followers = followers;

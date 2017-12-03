@@ -158,9 +158,9 @@
 -(void)setObject:(id)object {
     [self buildCellStructure];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.repositories.text = ((PHPersonalItem *)object).repositories;
-    self.followers.text = ((PHPersonalItem *)object).followers;
-    self.following.text = ((PHPersonalItem *)object).following;
+    self.repositories.text = ((PHPersonalDetailItem *)object).repositories;
+    self.followers.text = ((PHPersonalDetailItem *)object).followers;
+    self.following.text = ((PHPersonalDetailItem *)object).following;
 }
 
 +(CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

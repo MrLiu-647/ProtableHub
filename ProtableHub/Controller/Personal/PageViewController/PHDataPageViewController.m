@@ -13,6 +13,8 @@
 
 @property (nonatomic,strong) PHPageViewDataSource *pageDataSource;
 
+@property (nonatomic,strong) id currentPage;
+
 @end
 
 @implementation PHDataPageViewController
@@ -24,8 +26,12 @@
     self.dataSource = self.pageDataSource;
     
     //设置初始Page页面
-    id middleVC = [[self.pageDataSource.containedPages[1] alloc] init];
-    [self setViewControllers:@[middleVC] direction:UIPageViewControllerNavigationDirectionForward animated:true completion:nil];
+    self.currentPage = [[self.pageDataSource.containedPages[1] alloc] init];
+    [self setViewControllers:@[self.currentPage] direction:UIPageViewControllerNavigationDirectionForward animated:true completion:nil];
+}
+
+-(void)refreshCurrentPage {
+    [self.currentPage imitatedRefresh];
 }
 
 @end

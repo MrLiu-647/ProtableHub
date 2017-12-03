@@ -11,4 +11,6 @@
 
 @interface DTRefreshTableViewController : DTTableViewController
 
+-(void)imitatedRefresh;
+
 @end

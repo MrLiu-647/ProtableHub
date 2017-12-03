@@ -31,8 +31,8 @@
     return _followerDataSource;
 }
 
--(void)pullDownToRefresh {
-    NSLog(@"下拉刷新");
+-(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
+    NSLog(@"子类处理刷新事件");
 }
 
 @end
