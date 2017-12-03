@@ -37,8 +37,8 @@
         make.top.mas_equalTo(weakSelf.userName.mas_bottom);
         make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(10);
     }];
-    [self.contentView addSubview:self.stars];
-    [self.stars mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.contentView addSubview:self.createdDate];
+    [self.createdDate mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(weakSelf.userName);
         make.top.mas_equalTo(weakSelf.signature.mas_bottom);
         make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(10);
@@ -52,7 +52,7 @@
     self.userAvatars.image = [UIImage imageWithData:((PHPersonalItem *)object).userAvatars];
     self.userName.text = [[NSString alloc] initWithFormat:@"Name(%@)",((PHPersonalItem *)object).userName];
     self.signature.text = [[NSString alloc] initWithFormat:@"\"%@\"",((PHPersonalItem *)object).signature];
-    self.stars.text = [[NSString alloc] initWithFormat:@"Stars:%@",((PHPersonalItem *)object).stars];
+    self.createdDate.text = [[NSString alloc] initWithFormat:@"Create at: %@",((PHPersonalItem *)object).createdDate];
 }
 
 +(CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
@@ -87,13 +87,13 @@
     return _signature;
 }
 
--(UILabel *)stars {
-    if(!_stars) {
-        _stars = [[UILabel alloc] init];
-        [_stars setTextColor:UIColor.redColor];
-        _stars.textAlignment = NSTextAlignmentLeft;
+-(UILabel *)createdDate {
+    if(!_createdDate) {
+        _createdDate = [[UILabel alloc] init];
+        [_createdDate setTextColor:UIColor.redColor];
+        _createdDate.textAlignment = NSTextAlignmentLeft;
     }
-    return _stars;
+    return _createdDate;
 }
 
 @end

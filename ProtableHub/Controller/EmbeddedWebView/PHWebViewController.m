@@ -120,10 +120,12 @@
 
 -(void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     NSLog(@"加载失败%@",error);
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 -(void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     NSLog(@"加载失败%@",error);
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 //清除缓存

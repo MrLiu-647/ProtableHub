@@ -14,7 +14,7 @@
 @property (nonatomic,strong) NSData *userAvatars;
 @property (nonatomic,copy) NSString *userName;
 @property (nonatomic,copy) NSString *signature;
-@property (nonatomic,copy) NSString *stars;
+@property (nonatomic,copy) NSString *createdDate;
 
 @property (nonatomic,copy) NSString *userCompany;
 @property (nonatomic,copy) NSString *userMail;

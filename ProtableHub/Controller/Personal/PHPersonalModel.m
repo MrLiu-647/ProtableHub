@@ -27,10 +27,21 @@
     });
     return model;
 }
-
+//获取基本信息
 -(void)handleResponseData:(id)response {
     if([NSJSONSerialization isValidJSONObject:response]) {
-        SLog(@"合格的Json格式%@",response);
+        NSDictionary *dic1 = [self.basicInfo getJsonPathDic];
+        NSDictionary *dic2 = [self.detailInfo getJsonPathDic];
+        for (NSString *key in dic1) {
+            if([[response allKeys] containsObject:dic1[key]]) {
+                [self.basicInfo setValue:response[dic1[key]] forKey:key];
+            }
+        }
+        for (NSString *key in dic2) {
+            if([[response allKeys] containsObject:dic2[key]]) {
+                [self.detailInfo setValue:[[NSString alloc] initWithFormat:@"%@",response[dic2[key]]] forKey:key];
+            }
+        }
         if(self.successBlock) {
             self.successBlock();
         }

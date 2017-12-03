@@ -16,7 +16,10 @@
         self.userAvatars = nil;
         self.userName = @"*";
         self.signature = @"*";
-        self.stars = @"*";
+        self.createdDate = @"*";
+        [self addMappingRuleProperty:@"userName" pathInJson:@"name"];
+        [self addMappingRuleProperty:@"signature" pathInJson:@"bio"];
+        [self addMappingRuleProperty:@"createdDate" pathInJson:@"created_at"];
     }
     return self;
 }
@@ -27,7 +30,7 @@
         self.userAvatars = avatars;
         self.userName = name;
         self.signature = signature;
-        self.stars = stars;
+        self.createdDate = stars;
     }
     return self;
 }
@@ -42,6 +45,9 @@
         self.repositories = @"*";
         self.followers = @"*";
         self.following = @"*";
+        [self addMappingRuleProperty:@"repositories" pathInJson:@"public_repos"];
+        [self addMappingRuleProperty:@"followers" pathInJson:@"followers"];
+        [self addMappingRuleProperty:@"following" pathInJson:@"following"];
     }
     return self;
 }

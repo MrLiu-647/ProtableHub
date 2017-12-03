@@ -72,6 +72,7 @@
                                               requestMethod:PH_REQUEST_POST
                                                       route:@"login/oauth/access_token" handler:^{
                                                           [weakSelf.pageVC refreshCurrentPage];
+                                                          [weakSelf.tableView reloadData];
                                                       }];
 }
 

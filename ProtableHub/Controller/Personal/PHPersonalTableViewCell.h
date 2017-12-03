@@ -13,7 +13,7 @@
 @property (nonatomic,strong) UIImageView *userAvatars;
 @property (nonatomic,strong) UILabel *userName;
 @property (nonatomic,strong) UILabel *signature;
-@property (nonatomic,strong) UILabel *stars;
+@property (nonatomic,strong) UILabel *createdDate;
 //以下为可选信息
 @property (nonatomic,strong) UILabel *userCompany;
 @property (nonatomic,strong) UILabel *userMail;
