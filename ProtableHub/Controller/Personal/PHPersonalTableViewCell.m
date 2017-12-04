@@ -29,17 +29,16 @@
     [self.userName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.mas_top).offset(5);
         make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(10);
-        make.size.mas_equalTo(CGSizeMake(200, 80/3.0));
+        make.size.mas_equalTo(CGSizeMake(240, 80/3.0));
     }];
     [self.contentView addSubview:self.signature];
     [self.signature mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo(weakSelf.userName);
         make.top.mas_equalTo(weakSelf.userName.mas_bottom);
         make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(10);
     }];
     [self.contentView addSubview:self.createdDate];
     [self.createdDate mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo(weakSelf.userName);
+        make.size.mas_equalTo(weakSelf.userName);
         make.top.mas_equalTo(weakSelf.signature.mas_bottom);
         make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(10);
     }];
@@ -52,7 +51,12 @@
     self.userAvatars.image = [UIImage imageWithData:((PHPersonalItem *)object).userAvatars];
     self.userName.text = [[NSString alloc] initWithFormat:@"Name(%@)",((PHPersonalItem *)object).userName];
     self.signature.text = [[NSString alloc] initWithFormat:@"\"%@\"",((PHPersonalItem *)object).signature];
-    self.createdDate.text = [[NSString alloc] initWithFormat:@"Create at: %@",((PHPersonalItem *)object).createdDate];
+    if((((PHPersonalItem *)object).createdDate).length > 10) {
+        self.createdDate.text = [[NSString alloc] initWithFormat:@"Joined on %@",[(((PHPersonalItem *)object).createdDate) substringToIndex:10]];
+    }
+    else {
+        self.createdDate.text = [[NSString alloc] initWithFormat:@"Joined on %@",((PHPersonalItem *)object).createdDate];
+    }
 }
 
 +(CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
@@ -82,6 +86,10 @@
     if(!_signature) {
         _signature = [[UILabel alloc] init];
         [_signature setTextColor:UIColor.lightGrayColor];
+        _signature.numberOfLines = 2;
+        [_signature sizeToFit];
+        _signature.preferredMaxLayoutWidth = 240.0;
+        _signature.lineBreakMode = NSLineBreakByTruncatingTail;
         _signature.textAlignment = NSTextAlignmentLeft;
     }
     return _signature;
