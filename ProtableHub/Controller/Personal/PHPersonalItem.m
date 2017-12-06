@@ -20,11 +20,13 @@
         [self addMappingRuleProperty:@"userName" pathInJson:@"name"];
         [self addMappingRuleProperty:@"signature" pathInJson:@"bio"];
         [self addMappingRuleProperty:@"createdDate" pathInJson:@"created_at"];
+        [self addMappingRuleProperty:@"userAvatars" pathInJson:@"avatar_url"];
+        [self loadStorageFromLocal];
     }
     return self;
 }
 
--(instancetype)initWithMainInfo:(NSData *)avatars userName:(NSString *)name signature:(NSString *)signature star:(NSString *)stars {
+-(instancetype)initWithMainInfo:(NSString *)avatars userName:(NSString *)name signature:(NSString *)signature star:(NSString *)stars {
     self = [super init];
     if(self) {
         self.userAvatars = avatars;
@@ -48,6 +50,10 @@
         [self addMappingRuleProperty:@"repositories" pathInJson:@"public_repos"];
         [self addMappingRuleProperty:@"followers" pathInJson:@"followers"];
         [self addMappingRuleProperty:@"following" pathInJson:@"following"];
+        [self addMappingRuleProperty:@"repos_url" pathInJson:@"repos_url"];
+        [self addMappingRuleProperty:@"followers_url" pathInJson:@"followers_url"];
+        [self addMappingRuleProperty:@"following_url" pathInJson:@"following_url"];
+        [self loadStorageFromLocal];
     }
     return self;
 }

@@ -9,6 +9,7 @@
 #import "PHPersonalTableViewCell.h"
 #import "PHPersonalItem.h"
 #import <Masonry.h>
+#import <UIImageView+WebCache.h>
 
 @implementation PHPersonalTableViewCell
 
@@ -28,19 +29,17 @@
     [self.contentView addSubview:self.userName];
     [self.userName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.mas_top).offset(5);
-        make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(10);
-        make.size.mas_equalTo(CGSizeMake(240, 80/3.0));
+        make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(5);
     }];
     [self.contentView addSubview:self.signature];
     [self.signature mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.userName.mas_bottom);
-        make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(10);
+        make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(5);
     }];
     [self.contentView addSubview:self.createdDate];
     [self.createdDate mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(weakSelf.userName);
         make.top.mas_equalTo(weakSelf.signature.mas_bottom);
-        make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(10);
+        make.left.mas_equalTo(weakSelf.userAvatars.mas_right).offset(5);
     }];
 }
 
@@ -48,7 +47,7 @@
     [self buildCellStructure];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.userAvatars.image = [UIImage imageWithData:((PHPersonalItem *)object).userAvatars];
+    [self.userAvatars sd_setImageWithURL:[NSURL URLWithString:((PHPersonalItem *)object).userAvatars]];
     self.userName.text = [[NSString alloc] initWithFormat:@"Name(%@)",((PHPersonalItem *)object).userName];
     self.signature.text = [[NSString alloc] initWithFormat:@"\"%@\"",((PHPersonalItem *)object).signature];
     if((((PHPersonalItem *)object).createdDate).length > 10) {
@@ -60,7 +59,7 @@
 }
 
 +(CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
-    return 100.0f;
+    return 90.0f;
 }
 
 -(UIImageView *)userAvatars {
@@ -78,6 +77,10 @@
         _userName = [[UILabel alloc] init];
         [_userName setTextColor:[UIColor colorWithRed:0/255.0 green:116/255.0 blue:255/255.0 alpha:1.0]];
         _userName.textAlignment = NSTextAlignmentLeft;
+        [_userName sizeToFit];
+        _userName.preferredMaxLayoutWidth = 240.0;
+        _userName.lineBreakMode = NSLineBreakByTruncatingTail;
+        _userName.numberOfLines = 1;
     }
     return _userName;
 }
@@ -100,6 +103,10 @@
         _createdDate = [[UILabel alloc] init];
         [_createdDate setTextColor:UIColor.redColor];
         _createdDate.textAlignment = NSTextAlignmentLeft;
+        _createdDate.preferredMaxLayoutWidth = 240.0;
+        _createdDate.lineBreakMode = NSLineBreakByTruncatingTail;
+        [_createdDate sizeToFit];
+        _createdDate.numberOfLines = 1;
     }
     return _createdDate;
 }

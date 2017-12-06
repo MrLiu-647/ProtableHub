@@ -32,7 +32,7 @@
 }
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
-    NSLog(@"子类处理刷新事件");
+    NSLog(@"%@",[NSUserDefaults.standardUserDefaults valueForKey:@"repos_url"]);
 }
 
 @end

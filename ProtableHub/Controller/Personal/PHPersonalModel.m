@@ -35,11 +35,13 @@
         for (NSString *key in dic1) {
             if([[response allKeys] containsObject:dic1[key]]) {
                 [self.basicInfo setValue:response[dic1[key]] forKey:key];
+                [NSUserDefaults.standardUserDefaults setValue:response[dic1[key]] forKey:key];
             }
         }
         for (NSString *key in dic2) {
             if([[response allKeys] containsObject:dic2[key]]) {
                 [self.detailInfo setValue:[[NSString alloc] initWithFormat:@"%@",response[dic2[key]]] forKey:key];
+                [NSUserDefaults.standardUserDefaults setValue:response[dic2[key]] forKey:key];
             }
         }
         if(self.successBlock) {
@@ -48,9 +50,11 @@
     }
     else {
         self.accessToken = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+        [NSUserDefaults.standardUserDefaults setValue:self.accessToken forKey:@"accessToken"];
         self.serverAPI.server = @"https://api.github.com";
         [self lanuchRequestWithParams:nil requestMethod:PH_REQUEST_GET route:[[NSString alloc] initWithFormat:@"/user?%@",self.accessToken] handler:nil];
     }
+    [NSUserDefaults.standardUserDefaults synchronize];
 }
 
 -(PHPersonalItem *)basicInfo {

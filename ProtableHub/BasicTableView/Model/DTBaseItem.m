@@ -31,4 +31,14 @@
     return self.jsonDataMap;
 }
 
+-(id)loadStorageFromLocal {
+    NSDictionary *pathDic = [self getJsonPathDic];
+    for (NSString *key in pathDic) {
+        if([[NSUserDefaults standardUserDefaults] valueForKey:key]) {
+            [self setValue:[[NSString alloc] initWithFormat:@"%@",[NSUserDefaults.standardUserDefaults valueForKey:key]] forKey:key];
+        }
+    }
+    return self;
+}
+
 @end

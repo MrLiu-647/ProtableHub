@@ -15,4 +15,6 @@
 
 -(NSMutableDictionary *)getJsonPathDic;
 
+-(id)loadStorageFromLocal;
+
 @end
