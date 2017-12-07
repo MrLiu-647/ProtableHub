@@ -34,11 +34,15 @@
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
     NSLog(@"子类处理刷新事件");
-    __weak typeof(self) weakSelf = self;
-    [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"following_url"] dataClass:[PHFollowingItem class] handler:^{
-        [weakSelf.tableView reloadData];
-        [weakSelf.tableView.refreshControl endRefreshing];
-    }];
+    if([NSUserDefaults.standardUserDefaults valueForKey:@"following_url"]) {
+        __weak typeof(self) weakSelf = self;
+        [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"following_url"] dataClass:[PHFollowingItem class] handler:^{
+            [weakSelf.tableView reloadData];
+            [weakSelf.tableView.refreshControl endRefreshing];
+        }];
+    }else {
+        [self.tableView.refreshControl endRefreshing];
+    }
 }
 
 @end
