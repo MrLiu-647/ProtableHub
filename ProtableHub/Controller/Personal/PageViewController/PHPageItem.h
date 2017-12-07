@@ -6,9 +6,20 @@
 //  Copyright © 2017年 俞清源. All rights reserved.
 //
 
-#import "DTBasicItem.h"
+#import "DTBaseItem.h"
 
-@interface PHPageItem : DTBasicItem
+@interface PHPageItem : DTBaseItem
+
+//followers
+@property (nonatomic,copy) NSString *followerIcon;
+@property (nonatomic,copy) NSString *followerName;
+@property (nonatomic,copy) NSString *followerIntro;
+
+-(instancetype)initWithFollowerIcon:(NSString *)data followerName:(NSString *)name followerIntro:(NSString *)intro;
+
+@end
+
+@interface PHRepoItem : DTBaseItem
 
 //repo
 @property (nonatomic,copy) NSString *repoName;
@@ -17,21 +28,17 @@
 @property (nonatomic,copy) NSString *repoDetails;
 @property (nonatomic,copy) NSString *repoAuthor;
 
-//followers
-@property (nonatomic,strong) NSData *followerIcon;
-@property (nonatomic,copy) NSString *followerName;
-@property (nonatomic,copy) NSString *followerIntro;
-
-//following
-@property (nonatomic,strong) NSData *followingIcon;
-@property (nonatomic,copy) NSString *followingName;
-@property (nonatomic,copy) NSString *followingIntro;
-
 -(instancetype)initWithRepoName:(NSString *)name repoIntro:(NSString *)intro repoMainLanguage:(NSString *)language repoDetails:(NSString *)details;
-
--(instancetype)initWithFollowerIcon:(NSData *)data followerName:(NSString *)name followerIntro:(NSString *)intro;
-
--(instancetype)initWithFollowingIcon:(NSData *)data followingName:(NSString *)name followingIntro:(NSString *)intro;
 
 @end
 
+@interface PHFollowingItem : DTBaseItem
+
+//following
+@property (nonatomic,copy) NSString *followingIcon;
+@property (nonatomic,copy) NSString *followingName;
+@property (nonatomic,copy) NSString *followingIntro;
+
+-(instancetype)initWithFollowingIcon:(NSString *)data followingName:(NSString *)name followingIntro:(NSString *)intro;
+
+@end

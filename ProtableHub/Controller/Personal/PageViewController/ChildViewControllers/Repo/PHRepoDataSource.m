@@ -9,13 +9,15 @@
 #import "PHRepoDataSource.h"
 #import "PHRepoTableViewCell.h"
 #import "PHPageItem.h"
+#import "PHPageModel.h"
 
 @implementation PHRepoDataSource
 
 -(instancetype)init {
     self = [super init];
     if(self) {
-        DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:[[PHPageItem alloc] initWithRepoName:@"ProtableHub" repoIntro:@"掌上Github" repoMainLanguage:@"Objective-C" repoDetails:nil], nil]];
+        DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:nil];
+        firstSection.items = PHPageModel.sharedInstance.repoInfo;
         firstSection.headTitle = @"Repositories";
         self.sections = [NSMutableArray arrayWithObject:firstSection];
     }

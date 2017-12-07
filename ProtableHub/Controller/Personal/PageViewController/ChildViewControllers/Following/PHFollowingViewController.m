@@ -8,6 +8,7 @@
 
 #import "PHFollowingViewController.h"
 #import "PHFollowingDataSource.h"
+#import "PHPageModel.h"
 
 @interface PHFollowingViewController ()
 
@@ -33,6 +34,11 @@
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
     NSLog(@"子类处理刷新事件");
+    __weak typeof(self) weakSelf = self;
+    [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"following_url"] dataClass:[PHFollowingItem class] handler:^{
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.refreshControl endRefreshing];
+    }];
 }
 
 @end

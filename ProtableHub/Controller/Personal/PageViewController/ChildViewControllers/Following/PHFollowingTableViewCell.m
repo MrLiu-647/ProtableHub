@@ -8,6 +8,7 @@
 
 #import "PHFollowingTableViewCell.h"
 #import "PHPageItem.h"
+#import <UIImageView+WebCache.h>
 
 @implementation PHFollowingTableViewCell
 
@@ -28,9 +29,9 @@
 }
 
 -(void)setObject:(id)object {
-    self.followingIcon.image = [UIImage imageWithData:((PHPageItem *)object).followingIcon];
-    self.followingName.text = ((PHPageItem *)object).followingName;
-    self.followingIntro.text = ((PHPageItem *)object).followingIntro;
+    [self.followingIcon sd_setImageWithURL:[NSURL URLWithString:((PHFollowingItem *)object).followingIcon]];
+    self.followingName.text = ((PHFollowingItem *)object).followingName;
+    self.followingIntro.text = ((PHFollowingItem *)object).followingIntro;
 }
 
 +(CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

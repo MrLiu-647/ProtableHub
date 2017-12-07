@@ -36,10 +36,12 @@
         self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
         self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     }
-    if (![api hasPrefix:@"/"]) {
-        self.api = [@"/" stringByAppendingString:api];
-    } else {
-        self.api = api;
+    if(api != nil) {
+        if (![api hasPrefix:@"/"]) {
+            self.api = [@"/" stringByAppendingString:api];
+        } else {
+            self.api = api;
+        }
     }
     
     //如果任务进行中,便取消网络任务
@@ -57,7 +59,10 @@
     self.jsonData = nil;
     self.rawData = nil;
     
-    NSString *requestURL = [self.server stringByAppendingString:self.api];
+    NSString *requestURL = self.server;
+    if(self.api != nil) {
+        requestURL = [self.server stringByAppendingString:self.api];
+    }
     if(method == PH_REQUEST_POST) {
         self.task = [self.manager POST:requestURL parameters:self.requestParams progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             self.rawData = (NSData *)responseObject;

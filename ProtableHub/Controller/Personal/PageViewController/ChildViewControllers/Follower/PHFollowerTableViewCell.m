@@ -8,6 +8,7 @@
 
 #import "PHFollowerTableViewCell.h"
 #import "PHPageItem.h"
+#import <UIImageView+WebCache.h>
 
 @implementation PHFollowerTableViewCell
 
@@ -23,14 +24,14 @@
     [self.contentView addSubview:self.followerIcon];
     self.followerName.frame = CGRectMake(10+self.followerIcon.frame.size.width, 5, 200, self.followerIcon.frame.size.height/2);
     [self.contentView addSubview:self.followerName];
-    self.followerIntro.frame = CGRectMake(10+self.followerIcon.frame.size.width, 5+self.followerName.frame.size.height, 200, self.followerIcon.frame.size.height/2);
-    [self.contentView addSubview:self.followerIntro];
+//    self.followerIntro.frame = CGRectMake(10+self.followerIcon.frame.size.width, 5+self.followerName.frame.size.height, 200, self.followerIcon.frame.size.height/2);
+//    [self.contentView addSubview:self.followerIntro];
 }
 
 -(void)setObject:(id)object {
-    self.followerIcon.image = [UIImage imageWithData:((PHPageItem *)object).followerIcon];
+    [self.followerIcon sd_setImageWithURL:[NSURL URLWithString:((PHPageItem *)object).followerIcon]];
     self.followerName.text = ((PHPageItem *)object).followerName;
-    self.followerIntro.text = ((PHPageItem *)object).followerIntro;
+//    self.followerIntro.text = ((PHPageItem *)object).followerIntro;
 }
 
 +(CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

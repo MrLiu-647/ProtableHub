@@ -9,14 +9,16 @@
 #import "PHFollowerDataSource.h"
 #import "PHFollowerTableViewCell.h"
 #import "PHPageItem.h"
+#import "PHPageModel.h"
 
 @implementation PHFollowerDataSource
 
 -(instancetype)init {
     self = [super init];
     if(self) {
-        DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:[[NSMutableArray alloc] initWithObjects:[[PHPageItem alloc] initWithFollowerIcon:nil followerName:@"yuqingyuan" followerIntro:@"学生"], nil]];
-        firstSection.headTitle = @"Followers";
+        DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:nil];
+        firstSection.items = PHPageModel.sharedInstance.followerInfo;
+        firstSection.headTitle = @"Followers";  
         self.sections = [NSMutableArray arrayWithObject:firstSection];
     }
     return self;

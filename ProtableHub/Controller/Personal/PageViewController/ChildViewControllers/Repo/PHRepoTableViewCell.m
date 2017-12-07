@@ -27,9 +27,9 @@
 }
 
 -(void)setObject:(id)object {
-    self.repoName.text = [[NSString alloc] initWithFormat:@"Repo:%@",((PHPageItem *)object).repoName];
-    self.repoIntro.text = [[NSString alloc] initWithFormat:@"%@",((PHPageItem *)object).repoIntro];
-    self.repoMainLanguage.text = [[NSString alloc] initWithFormat:@"Main Language:%@",((PHPageItem *)object).repoMainLanguage];
+    self.repoName.text = [[NSString alloc] initWithFormat:@"Repo:%@",((PHRepoItem *)object).repoName];
+    self.repoIntro.text = [[NSString alloc] initWithFormat:@"%@",((PHRepoItem *)object).repoIntro];
+    self.repoMainLanguage.text = [[NSString alloc] initWithFormat:@"Main Language:%@",((PHRepoItem *)object).repoMainLanguage];
 }
 
 //根据intro里的内容大小来改变

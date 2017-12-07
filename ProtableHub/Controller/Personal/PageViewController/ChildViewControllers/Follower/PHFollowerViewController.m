@@ -8,6 +8,7 @@
 
 #import "PHFollowerViewController.h"
 #import "PHFollowerDataSource.h"
+#import "PHPageModel.h"
 
 @interface PHFollowerViewController ()
 
@@ -32,7 +33,12 @@
 }
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
-    NSLog(@"%@",[NSUserDefaults.standardUserDefaults valueForKey:@"repos_url"]);
+    NSLog(@"子类处理刷新事件");
+    __weak typeof(self) weakSelf = self;
+    [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"followers_url"] dataClass:[PHPageItem class] handler:^{
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.refreshControl endRefreshing];
+    }];
 }
 
 @end

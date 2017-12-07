@@ -8,6 +8,7 @@
 
 #import "PHRepoViewController.h"
 #import "PHRepoDataSource.h"
+#import "PHPageModel.h"
 
 @interface PHRepoViewController ()
 
@@ -23,7 +24,6 @@
     self.dataSource = self.repoDataSource;
     self.view.backgroundColor = UIColor.blackColor;
     self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 -(id)createDataSource {
@@ -33,6 +33,11 @@
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
     NSLog(@"子类处理刷新事件");
+    __weak typeof(self) weakSelf = self;
+    [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"repos_url"] dataClass:[PHRepoItem class] handler:^{
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.refreshControl endRefreshing];
+    }];
 }
 
 @end

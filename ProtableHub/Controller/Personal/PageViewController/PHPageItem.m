@@ -13,18 +13,38 @@
 -(instancetype)init {
     self = [super init];
     if(self) {
-        self.repoName = @"*";
-        self.repoIntro = @"*";
-        self.repoDetails = @"*";
-        self.repoMainLanguage = @"*";
-        
         self.followerIcon = nil;
         self.followerName = @"*";
         self.followerIntro = @"*";
-        
-        self.followingIcon = nil;
-        self.followingName = @"*";
-        self.followingIntro = @"*";
+        [self addMappingRuleProperty:@"followingIcon" pathInJson:@"avatar_url"];
+        [self addMappingRuleProperty:@"followerName" pathInJson:@"login"];
+    }
+    return self;
+}
+
+-(instancetype)initWithFollowerIcon:(NSString *)data followerName:(NSString *)name followerIntro:(NSString *)intro {
+    self = [super init];
+    if(self) {
+        self.followerIcon = data;
+        self.followerName = name;
+        self.followerIntro = intro;
+    }
+    return self;
+}
+
+@end
+
+@implementation PHRepoItem
+
+-(instancetype)init {
+    self = [super init];
+    if(self) {
+        self.repoName = @"*";
+        self.repoIntro = @"*";
+        self.repoMainLanguage = @"*";
+        [self addMappingRuleProperty:@"repoName" pathInJson:@"name"];
+        [self addMappingRuleProperty:@"repoIntro" pathInJson:@"description"];
+        [self addMappingRuleProperty:@"repoMainLanguage" pathInJson:@"language"];
     }
     return self;
 }
@@ -40,17 +60,23 @@
     return self;
 }
 
--(instancetype)initWithFollowerIcon:(NSData *)data followerName:(NSString *)name followerIntro:(NSString *)intro {
+@end
+
+@implementation PHFollowingItem
+
+-(instancetype)init {
     self = [super init];
     if(self) {
-        self.followerIcon = data;
-        self.followerName = name;
-        self.followerIntro = intro;
+        self.followingIcon = nil;
+        self.followingName = @"*";
+        self.followingIntro = @"*";
+        [self addMappingRuleProperty:@"followingIcon" pathInJson:@"avatar_url"];
+        [self addMappingRuleProperty:@"followingName" pathInJson:@"login"];
     }
     return self;
 }
 
--(instancetype)initWithFollowingIcon:(NSData *)data followingName:(NSString *)name followingIntro:(NSString *)intro {
+-(instancetype)initWithFollowingIcon:(NSString *)data followingName:(NSString *)name followingIntro:(NSString *)intro {
     self = [super init];
     if(self) {
         self.followingIcon = data;
@@ -61,3 +87,4 @@
 }
 
 @end
+
