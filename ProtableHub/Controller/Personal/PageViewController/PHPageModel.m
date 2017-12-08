@@ -31,6 +31,14 @@
     }
     self.serverAPI.server = tempApi;
     
+    if([className isEqual:[PHPageItem class]]) {
+        [self.followerInfo removeAllObjects];
+    }else if([className isEqual:[PHFollowingItem class]]) {
+        [self.followingInfo removeAllObjects];
+    }else {
+        [self.repoInfo removeAllObjects];
+    }
+    
     __weak typeof(self) weakSelf = self;
     [self.serverAPI requestAPI:nil
                         params:nil
