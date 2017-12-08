@@ -31,20 +31,19 @@
     }
     self.serverAPI.server = tempApi;
     
-    if([className isEqual:[PHPageItem class]]) {
-        [self.followerInfo removeAllObjects];
-    }else if([className isEqual:[PHFollowingItem class]]) {
-        [self.followingInfo removeAllObjects];
-    }else {
-        [self.repoInfo removeAllObjects];
-    }
-    
     __weak typeof(self) weakSelf = self;
     [self.serverAPI requestAPI:nil
                         params:nil
                          files:nil
                  requestMethod:PH_REQUEST_GET
                completionBlock:^(DTBaseServerAPI *response) {
+                   if([className isEqual:[PHPageItem class]]) {
+                       [weakSelf.followerInfo removeAllObjects];
+                   }else if([className isEqual:[PHFollowingItem class]]) {
+                       [weakSelf.followingInfo removeAllObjects];
+                   }else {
+                       [weakSelf.repoInfo removeAllObjects];
+                   }
                    [weakSelf assignDataFromDataWithClass:className data:response.jsonData];
                    weakSelf.phBlock();
     }];

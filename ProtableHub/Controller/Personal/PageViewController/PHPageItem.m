@@ -16,7 +16,7 @@
         self.followerIcon = nil;
         self.followerName = @"*";
         self.followerIntro = @"*";
-        [self addMappingRuleProperty:@"followingIcon" pathInJson:@"avatar_url"];
+        [self addMappingRuleProperty:@"followerIcon" pathInJson:@"avatar_url"];
         [self addMappingRuleProperty:@"followerName" pathInJson:@"login"];
     }
     return self;

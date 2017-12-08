@@ -8,6 +8,7 @@
 
 #import "PHRepoTableViewCell.h"
 #import "PHPageItem.h"
+#import <Masonry.h>
 
 @implementation PHRepoTableViewCell
 
