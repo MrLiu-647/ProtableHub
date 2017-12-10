@@ -46,6 +46,7 @@
                    }
                    [weakSelf assignDataFromDataWithClass:className data:response.jsonData];
                    weakSelf.phBlock();
+                   [self storeIntoLocal];   //存储到本地
     }];
 }
 
@@ -76,9 +77,45 @@
     }
 }
 
+-(void)storeIntoLocal {
+    NSMutableArray *storage_1 = [[NSMutableArray alloc] init];
+    for(int i = 0;i < self.repoInfo.count;i++) {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.repoInfo[i]];
+        [storage_1 addObject:data];
+    }
+    NSArray *array = [NSArray arrayWithArray:storage_1];
+    [NSUserDefaults.standardUserDefaults setObject:array forKey:@"repoInfo"];
+    
+    storage_1 = [[NSMutableArray alloc] init];
+    for(int i = 0;i < self.followerInfo.count;i++) {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.followerInfo[i]];
+        [storage_1 addObject:data];
+    }
+    array = [NSArray arrayWithArray:storage_1];
+    [NSUserDefaults.standardUserDefaults setObject:array forKey:@"followerInfo"];
+    
+    storage_1 = [[NSMutableArray alloc] init];
+    for(int i = 0;i < self.followingInfo.count;i++) {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.followingInfo[i]];
+        [storage_1 addObject:data];
+    }
+    array = [NSArray arrayWithArray:storage_1];
+    [NSUserDefaults.standardUserDefaults setObject:array forKey:@"followingInfo"];
+    
+    [NSUserDefaults.standardUserDefaults synchronize];
+}
+
 -(NSMutableArray *)repoInfo {
     if(!_repoInfo) {
         _repoInfo = [[NSMutableArray alloc] init];
+        if([NSUserDefaults.standardUserDefaults valueForKey:@"repoInfo"]) {
+            NSArray *array = [NSUserDefaults.standardUserDefaults valueForKey:@"repoInfo"];
+            NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
+            for(int i = 0;i < array.count;i++) {
+                [mutableArray addObject:[NSKeyedUnarchiver unarchiveObjectWithData:array[i]]];
+            }
+            _repoInfo = mutableArray;
+        }
     }
     return _repoInfo;
 }
@@ -86,6 +123,14 @@
 -(NSMutableArray *)followerInfo {
     if(!_followerInfo) {
         _followerInfo = [[NSMutableArray alloc] init];
+        if([NSUserDefaults.standardUserDefaults valueForKey:@"followerInfo"]) {
+            NSArray *array = [NSUserDefaults.standardUserDefaults valueForKey:@"followerInfo"];
+            NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
+            for(int i = 0;i < array.count;i++) {
+                [mutableArray addObject:[NSKeyedUnarchiver unarchiveObjectWithData:array[i]]];
+            }
+            _followerInfo = mutableArray;
+        }
     }
     return _followerInfo;
 }
@@ -93,6 +138,14 @@
 -(NSMutableArray *)followingInfo {
     if(!_followingInfo) {
         _followingInfo = [[NSMutableArray alloc] init];
+        if([NSUserDefaults.standardUserDefaults valueForKey:@"followingInfo"]) {
+            NSArray *array = [NSUserDefaults.standardUserDefaults valueForKey:@"followingInfo"];
+            NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
+            for(int i = 0;i < array.count;i++) {
+                [mutableArray addObject:[NSKeyedUnarchiver unarchiveObjectWithData:array[i]]];
+            }
+            _followingInfo = mutableArray;
+        }
     }
     return _followingInfo;
 }

@@ -25,10 +25,6 @@
     self.view.backgroundColor = UIColor.blackColor;
     self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self imitatedRefresh];
-    });
 }
 
 -(id)createDataSource {

@@ -32,6 +32,20 @@
     return self;
 }
 
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
+    [aCoder encodeObject:self.followerIcon forKey:@"followerIcon"];
+    [aCoder encodeObject:self.followerName forKey:@"followerName"];
+}
+
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
+    self = [super init];
+    if(self) {
+        self.followerIcon = [aDecoder decodeObjectForKey:@"followerIcon"];
+        self.followerName = [aDecoder decodeObjectForKey:@"followerName"];
+    }
+    return self;
+}
+
 @end
 
 @implementation PHRepoItem
@@ -64,6 +78,26 @@
     return self;
 }
 
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
+    [aCoder encodeObject:self.repoName forKey:@"repoName"];
+    [aCoder encodeObject:self.repoIntro forKey:@"repoIntro"];
+    [aCoder encodeObject:self.repoType forKey:@"repoType"];
+    [aCoder encodeObject:self.repoMainLanguage forKey:@"repoMainLanguage"];
+    [aCoder encodeObject:self.repoStarsCount forKey:@"repoStarsCount"];
+}
+
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
+    self = [super init];
+    if(self) {
+        self.repoName = [aDecoder decodeObjectForKey:@"repoName"];
+        self.repoType = [aDecoder decodeObjectForKey:@"repoType"];
+        self.repoIntro = [aDecoder decodeObjectForKey:@"repoIntro"];
+        self.repoMainLanguage = [aDecoder decodeObjectForKey:@"repoMainLanguage"];
+        self.repoStarsCount = [aDecoder decodeObjectForKey:@"repoStarsCount"];
+    }
+    return self;
+}
+
 @end
 
 @implementation PHFollowingItem
@@ -85,7 +119,20 @@
     if(self) {
         self.followingIcon = data;
         self.followingName = name;
-        self.followingIntro = intro;
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
+    [aCoder encodeObject:self.followingIcon forKey:@"followingIcon"];
+    [aCoder encodeObject:self.followingName forKey:@"followingName"];
+}
+
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
+    self = [super init];
+    if(self) {
+        self.followingName = [aDecoder decodeObjectForKey:@"followingName"];
+        self.followingIcon = [aDecoder decodeObjectForKey:@"followingIcon"];
     }
     return self;
 }

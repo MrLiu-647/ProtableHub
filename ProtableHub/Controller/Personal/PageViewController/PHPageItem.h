@@ -8,7 +8,7 @@
 
 #import "DTBaseItem.h"
 
-@interface PHPageItem : DTBaseItem
+@interface PHPageItem : DTBaseItem <NSCoding>
 
 //followers
 @property (nonatomic,copy) NSString *followerIcon;
@@ -19,7 +19,7 @@
 
 @end
 
-@interface PHRepoItem : DTBaseItem
+@interface PHRepoItem : DTBaseItem <NSCoding>
 
 //repo
 @property (nonatomic,copy) NSString *repoName;
@@ -35,7 +35,7 @@
 
 @end
 
-@interface PHFollowingItem : DTBaseItem
+@interface PHFollowingItem : DTBaseItem <NSCoding>
 
 //following
 @property (nonatomic,copy) NSString *followingIcon;
