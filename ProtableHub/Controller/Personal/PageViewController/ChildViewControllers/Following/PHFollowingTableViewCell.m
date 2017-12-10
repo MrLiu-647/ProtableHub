@@ -9,29 +9,37 @@
 #import "PHFollowingTableViewCell.h"
 #import "PHPageItem.h"
 #import <UIImageView+WebCache.h>
+#import <Masonry.h>
 
 @implementation PHFollowingTableViewCell
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    // Configure the view for the selected state
-    self.accessoryType = UITableViewCellAccessoryDetailButton;
-    [self buildCellStructure];
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if(self) {
+        [self buildCellStructure];
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    return self;
 }
 
 -(void)buildCellStructure {
-    self.followingIcon.frame = CGRectMake(5, 5, self.frame.size.height - 10, self.frame.size.height - 10);
+    __weak typeof(self) weakSelf = self;
     [self.contentView addSubview:self.followingIcon];
-    self.followingName.frame = CGRectMake(10+self.followingIcon.frame.size.width, 5, 200, self.followingIcon.frame.size.height/2);
+    [self.followingIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.top.mas_equalTo(weakSelf.mas_top).offset(5);
+        make.left.mas_equalTo(weakSelf.mas_left).offset(5);
+    }];
     [self.contentView addSubview:self.followingName];
-    self.followingIntro.frame = CGRectMake(10+self.followingIcon.frame.size.width, 5+self.followingName.frame.size.height, 200, self.followingIcon.frame.size.height/2);
-    [self.contentView addSubview:self.followingIntro];
+    [self.followingName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.mas_top).offset(5);
+        make.left.mas_equalTo(weakSelf.followingIcon.mas_right).offset(5);
+    }];
 }
 
 -(void)setObject:(id)object {
     [self.followingIcon sd_setImageWithURL:[NSURL URLWithString:((PHFollowingItem *)object).followingIcon]];
     self.followingName.text = ((PHFollowingItem *)object).followingName;
-    self.followingIntro.text = ((PHFollowingItem *)object).followingIntro;
 }
 
 +(CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
@@ -56,6 +64,9 @@
     if(!_followingName) {
         _followingName = [[UILabel alloc] init];
         _followingName.textAlignment = NSTextAlignmentLeft;
+        [_followingName sizeToFit];
+        _followingName.numberOfLines = 1;
+        _followingName.preferredMaxLayoutWidth = 300.0;
     }
     return _followingName;
 }

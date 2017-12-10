@@ -16,5 +16,7 @@
 
 +(CGFloat)tableView:(UITableView *)tableView headerHeightForSection:(NSInteger)section;
 
++(CGFloat)tableView:(UITableView *)tableView footerHeightForSection:(NSInteger)section;
+
 @end
 

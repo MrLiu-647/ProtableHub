@@ -27,6 +27,9 @@
 @property (nonatomic,copy) NSString *repoMainLanguage;
 @property (nonatomic,copy) NSString *repoDetails;
 @property (nonatomic,copy) NSString *repoAuthor;
+@property (nonatomic,copy) NSString *repoType;
+
+@property (nonatomic,copy) NSString *repoStarsCount;    //仓库的star数
 
 -(instancetype)initWithRepoName:(NSString *)name repoIntro:(NSString *)intro repoMainLanguage:(NSString *)language repoDetails:(NSString *)details;
 

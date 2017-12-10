@@ -61,7 +61,7 @@
     }else if(type == [NSMutableDictionary class]) {
         for (NSString *key in pathDic) {
             if([[response allKeys] containsObject:pathDic[key]]) {
-                [instance setValue:response[pathDic[key]] forKey:key];
+                [instance setValue:[[NSString alloc] initWithFormat:@"%@",response[pathDic[key]]] forKey:key];
             }
         }
         if([clsName isEqual:[PHPageItem class]]) {

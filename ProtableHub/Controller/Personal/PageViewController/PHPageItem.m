@@ -42,9 +42,13 @@
         self.repoName = @"*";
         self.repoIntro = @"*";
         self.repoMainLanguage = @"*";
+        self.repoType = @"0";
+        self.repoStarsCount = @"0";
         [self addMappingRuleProperty:@"repoName" pathInJson:@"name"];
         [self addMappingRuleProperty:@"repoIntro" pathInJson:@"description"];
         [self addMappingRuleProperty:@"repoMainLanguage" pathInJson:@"language"];
+        [self addMappingRuleProperty:@"repoType" pathInJson:@"fork"];
+        [self addMappingRuleProperty:@"repoStarsCount" pathInJson:@"stargazers_count"];
     }
     return self;
 }

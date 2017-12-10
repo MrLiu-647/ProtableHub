@@ -60,6 +60,13 @@
     return headerHeight;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    id<DTTableViewDataSourceDelegate> dataSource = (id<DTTableViewDataSourceDelegate>)tableView.dataSource;
+    Class cls = [dataSource getCurrentCellClass:section];
+    NSInteger headerHeight = [cls tableView:tableView footerHeightForSection:section];
+    return headerHeight;
+}
+
 -(void)setIsNeedToHavePullDownAction:(BOOL)isNeedToHavePullDownAction {
     if(_isNeedToHavePullDownAction == isNeedToHavePullDownAction) {
         return;

@@ -25,6 +25,10 @@
     self.view.backgroundColor = UIColor.blackColor;
     self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self imitatedRefresh];
+    });
 }
 
 -(id)createDataSource {
@@ -34,10 +38,15 @@
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
     NSLog(@"子类处理刷新事件");
-    if([NSUserDefaults.standardUserDefaults valueForKey:@"followers_url"]) {__weak typeof(self) weakSelf = self;
+    if([NSUserDefaults.standardUserDefaults valueForKey:@"followers_url"]) {
+        __weak typeof(self) weakSelf = self;
         [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"followers_url"] dataClass:[PHPageItem class] handler:^{
-            [weakSelf.tableView reloadData];
-            [weakSelf.tableView.refreshControl endRefreshing];
+            [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"following_url"] dataClass:[PHFollowingItem class] handler:^{
+                [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"repos_url"] dataClass:[PHRepoItem class] handler:^{
+                    [weakSelf.tableView reloadData];
+                    [weakSelf.tableView.refreshControl endRefreshing];
+                }];
+            }];
         }];
     }else {
         [self.tableView.refreshControl endRefreshing];

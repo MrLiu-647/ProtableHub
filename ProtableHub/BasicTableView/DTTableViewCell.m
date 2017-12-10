@@ -28,5 +28,9 @@
     return CGFLOAT_MIN;
 }
 
++(CGFloat)tableView:(UITableView *)tableView footerHeightForSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
 @end
 

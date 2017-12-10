@@ -34,7 +34,7 @@
         NSLog(@"正在刷新");
     }
     else {
-        [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
             self.tableView.contentOffset = CGPointMake(0, -self.tableView.refreshControl.frame.size.height);
         } completion:^(BOOL finished) {
             if(!self.tableView.refreshControl.isRefreshing) {
