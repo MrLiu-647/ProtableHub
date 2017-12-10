@@ -23,4 +23,6 @@ typedef void(^ResponseBlock)(void);
 
 -(void)getDataWithApi:(NSString *)api dataClass:(Class)className handler:(ResponseBlock)responseBlock;
 
+-(void)clearModel;
+
 @end

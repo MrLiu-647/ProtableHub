@@ -18,4 +18,6 @@
 
 +(PHPersonalModel *)sharedInstance;
 
+-(void)clearModel;
+
 @end

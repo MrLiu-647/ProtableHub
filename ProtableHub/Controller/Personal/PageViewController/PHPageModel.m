@@ -46,7 +46,7 @@
                    }
                    [weakSelf assignDataFromDataWithClass:className data:response.jsonData];
                    weakSelf.phBlock();
-                   [self storeIntoLocal];   //存储到本地
+                   [self storeIntoLocal];
     }];
 }
 
@@ -77,6 +77,17 @@
     }
 }
 
+//清空数据源
+-(void)clearModel {
+    [self.repoInfo removeAllObjects];
+    [self.followingInfo removeAllObjects];
+    [self.followerInfo removeAllObjects];
+    [NSUserDefaults.standardUserDefaults removeObjectForKey:@"repoInfo"];
+    [NSUserDefaults.standardUserDefaults removeObjectForKey:@"followingInfo"];
+    [NSUserDefaults.standardUserDefaults removeObjectForKey:@"followerInfo"];
+}
+
+//存储到本地缓存
 -(void)storeIntoLocal {
     NSMutableArray *storage_1 = [[NSMutableArray alloc] init];
     for(int i = 0;i < self.repoInfo.count;i++) {

@@ -10,4 +10,6 @@
 
 @interface PHFollowerViewController : DTRefreshTableViewController
 
+-(void)refreshData;
+
 @end

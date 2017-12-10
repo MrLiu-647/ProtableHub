@@ -49,12 +49,12 @@
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [self.userAvatars sd_setImageWithURL:[NSURL URLWithString:((PHPersonalItem *)object).userAvatars]];
     self.userName.text = [[NSString alloc] initWithFormat:@"Name(%@)",((PHPersonalItem *)object).userName];
-    self.signature.text = [[NSString alloc] initWithFormat:@"\"%@\"",((PHPersonalItem *)object).signature];
-    if((((PHPersonalItem *)object).createdDate).length > 10) {
-        self.createdDate.text = [[NSString alloc] initWithFormat:@"Joined on %@",[(((PHPersonalItem *)object).createdDate) substringToIndex:10]];
+    self.signature.text = [[NSString alloc] initWithFormat:@"\"%@\"",((PHPersonalItem *)object).userSignature];
+    if((((PHPersonalItem *)object).userCreatedDate).length > 10) {
+        self.createdDate.text = [[NSString alloc] initWithFormat:@"Joined on %@",[(((PHPersonalItem *)object).userCreatedDate) substringToIndex:10]];
     }
     else {
-        self.createdDate.text = [[NSString alloc] initWithFormat:@"Joined on %@",((PHPersonalItem *)object).createdDate];
+        self.createdDate.text = [[NSString alloc] initWithFormat:@"Joined on %@",((PHPersonalItem *)object).userCreatedDate];
     }
 }
 

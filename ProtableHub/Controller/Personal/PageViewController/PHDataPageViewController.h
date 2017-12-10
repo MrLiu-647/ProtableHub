@@ -12,4 +12,6 @@
 
 -(void)refreshCurrentPage;
 
+-(void)clearPageData;
+
 @end

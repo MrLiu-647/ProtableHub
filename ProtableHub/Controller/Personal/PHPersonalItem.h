@@ -9,12 +9,12 @@
 #import "DTBaseItem.h"
 
 //个人信息
-@interface PHPersonalItem : DTBaseItem
+@interface PHPersonalItem : DTBaseItem <NSCoding>
 
 @property (nonatomic,copy) NSString *userAvatars;
 @property (nonatomic,copy) NSString *userName;
-@property (nonatomic,copy) NSString *signature;
-@property (nonatomic,copy) NSString *createdDate;
+@property (nonatomic,copy) NSString *userSignature;
+@property (nonatomic,copy) NSString *userCreatedDate;
 
 @property (nonatomic,copy) NSString *userCompany;
 @property (nonatomic,copy) NSString *userMail;
@@ -27,7 +27,7 @@
 
 @end
 
-@interface PHPersonalDetailItem : DTBaseItem
+@interface PHPersonalDetailItem : DTBaseItem <NSCoding>
 
 @property (nonatomic,copy) NSString *followers;
 @property (nonatomic,copy) NSString *following;

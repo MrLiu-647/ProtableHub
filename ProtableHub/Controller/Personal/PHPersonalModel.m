@@ -35,17 +35,16 @@
         for (NSString *key in dic1) {
             if([[response allKeys] containsObject:dic1[key]]) {
                 [self.basicInfo setValue:response[dic1[key]] forKey:key];
-                [NSUserDefaults.standardUserDefaults setValue:response[dic1[key]] forKey:key];
             }
         }
         for (NSString *key in dic2) {
             if([[response allKeys] containsObject:dic2[key]]) {
                 [self.detailInfo setValue:[[NSString alloc] initWithFormat:@"%@",response[dic2[key]]] forKey:key];
-                [NSUserDefaults.standardUserDefaults setValue:response[dic2[key]] forKey:key];
             }
         }
         if(self.successBlock) {
             self.successBlock();
+            [self storeIntoLocal];
         }
     }
     else {
@@ -57,9 +56,29 @@
     [NSUserDefaults.standardUserDefaults synchronize];
 }
 
+-(void)storeIntoLocal {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.basicInfo];
+    [NSUserDefaults.standardUserDefaults setObject:data forKey:@"basicInfo"];
+    data = [NSKeyedArchiver archivedDataWithRootObject:self.detailInfo];
+    [NSUserDefaults.standardUserDefaults setObject:data forKey:@"detailInfo"];
+    [NSUserDefaults.standardUserDefaults synchronize];
+}
+
+-(void)clearModel {
+    self.basicInfo = [self.basicInfo init];
+    self.detailInfo = [self.detailInfo init];
+    [NSUserDefaults.standardUserDefaults removeObjectForKey:@"basicInfo"];
+    [NSUserDefaults.standardUserDefaults removeObjectForKey:@"detailInfo"];
+    [NSUserDefaults.standardUserDefaults synchronize];
+}
+
 -(PHPersonalItem *)basicInfo {
     if(!_basicInfo) {
         _basicInfo = [[PHPersonalItem alloc] init];
+        if([NSUserDefaults.standardUserDefaults valueForKey:@"basicInfo"]) {
+            NSData *data = [NSUserDefaults.standardUserDefaults valueForKey:@"basicInfo"];
+            _basicInfo = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        }
     }
     return _basicInfo;
 }
@@ -67,6 +86,10 @@
 -(PHPersonalDetailItem *)detailInfo {
     if(!_detailInfo) {
         _detailInfo = [[PHPersonalDetailItem alloc] init];
+        if([NSUserDefaults.standardUserDefaults valueForKey:@"detailInfo"]) {
+            NSData *data = [NSUserDefaults.standardUserDefaults valueForKey:@"detailInfo"];
+            _detailInfo = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        }
     }
     return _detailInfo;
 }

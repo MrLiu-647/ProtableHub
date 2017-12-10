@@ -15,13 +15,12 @@
     if(self) {
         self.userAvatars = nil;
         self.userName = @"*";
-        self.signature = @"*";
-        self.createdDate = @"*";
+        self.userSignature = @"*";
+        self.userCreatedDate = @"*";
         [self addMappingRuleProperty:@"userName" pathInJson:@"name"];
-        [self addMappingRuleProperty:@"signature" pathInJson:@"bio"];
-        [self addMappingRuleProperty:@"createdDate" pathInJson:@"created_at"];
+        [self addMappingRuleProperty:@"userSignature" pathInJson:@"bio"];
+        [self addMappingRuleProperty:@"userCreatedDate" pathInJson:@"created_at"];
         [self addMappingRuleProperty:@"userAvatars" pathInJson:@"avatar_url"];
-        [self loadStorageFromLocal];
     }
     return self;
 }
@@ -31,8 +30,26 @@
     if(self) {
         self.userAvatars = avatars;
         self.userName = name;
-        self.signature = signature;
-        self.createdDate = stars;
+        self.userSignature = signature;
+        self.userCreatedDate = stars;
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
+    [aCoder encodeObject:self.userName forKey:@"userName"];
+    [aCoder encodeObject:self.userCreatedDate forKey:@"userCreatedDate"];
+    [aCoder encodeObject:self.userSignature forKey:@"userSignature"];
+    [aCoder encodeObject:self.userAvatars forKey:@"userAvatars"];
+}
+
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
+    self = [super init];
+    if(self) {
+        self.userName = [aDecoder decodeObjectForKey:@"userName"];
+        self.userSignature = [aDecoder decodeObjectForKey:@"userSignature"];
+        self.userCreatedDate = [aDecoder decodeObjectForKey:@"userCreatedDate"];
+        self.userAvatars = [aDecoder decodeObjectForKey:@"userAvatars"];
     }
     return self;
 }
@@ -53,7 +70,6 @@
         [self addMappingRuleProperty:@"repos_url" pathInJson:@"repos_url"];
         [self addMappingRuleProperty:@"followers_url" pathInJson:@"followers_url"];
         [self addMappingRuleProperty:@"following_url" pathInJson:@"following_url"];
-        [self loadStorageFromLocal];
     }
     return self;
 }
@@ -64,6 +80,28 @@
         self.repositories = repositories;
         self.followers = followers;
         self.following = following;
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
+    [aCoder encodeObject:self.repositories forKey:@"repositories"];
+    [aCoder encodeObject:self.followers forKey:@"followers"];
+    [aCoder encodeObject:self.following forKey:@"following"];
+    [aCoder encodeObject:self.repos_url forKey:@"repos_url"];
+    [aCoder encodeObject:self.followers_url forKey:@"followers_url"];
+    [aCoder encodeObject:self.following_url forKey:@"following_url"];
+}
+
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
+    self = [super init];
+    if(self) {
+        self.repositories = [aDecoder decodeObjectForKey:@"repositories"];
+        self.following = [aDecoder decodeObjectForKey:@"following"];
+        self.followers = [aDecoder decodeObjectForKey:@"followers"];
+        self.repos_url = [aDecoder decodeObjectForKey:@"repos_url"];
+        self.following_url = [aDecoder decodeObjectForKey:@"following_url"];
+        self.followers_url = [aDecoder decodeObjectForKey:@"followers_url"];
     }
     return self;
 }

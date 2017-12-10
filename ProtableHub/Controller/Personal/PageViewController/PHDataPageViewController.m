@@ -8,6 +8,7 @@
 
 #import "PHDataPageViewController.h"
 #import "PHPageViewDataSource.h"
+#import "PHPageModel.h"
 
 @interface PHDataPageViewController ()
 
@@ -32,6 +33,12 @@
 
 -(void)refreshCurrentPage {
     [self.currentPage imitatedRefresh];
+    self.view.userInteractionEnabled = true;
+}
+
+-(void)clearPageData {
+    [PHPageModel.sharedInstance clearModel];
+    [self.currentPage refreshData];
 }
 
 @end

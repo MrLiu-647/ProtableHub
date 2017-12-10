@@ -33,7 +33,6 @@
 }
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
-    NSLog(@"子类处理刷新事件");
     if([NSUserDefaults.standardUserDefaults valueForKey:@"followers_url"]) {
         __weak typeof(self) weakSelf = self;
         [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"followers_url"] dataClass:[PHPageItem class] handler:^{
@@ -47,6 +46,10 @@
     }else {
         [self.tableView.refreshControl endRefreshing];
     }
+}
+
+-(void)refreshData {
+    [self.tableView reloadData];
 }
 
 @end
