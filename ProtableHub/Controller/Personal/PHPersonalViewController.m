@@ -75,7 +75,6 @@
 }
 
 -(void)getAccesstokenThroughCode:(NSNotification *)notification {
-    [self.pageVC refreshCurrentPage];
     PHPersonalModel.sharedInstance.serverAPI.server = @"https://github.com";
     __weak typeof(self) weakSelf = self;
     [PHPersonalModel.sharedInstance lanuchRequestWithParams:@{@"client_id":ClientID,
@@ -84,6 +83,7 @@
                                               requestMethod:PH_REQUEST_POST
                                                       route:@"login/oauth/access_token" handler:^{
                                                           [weakSelf.tableView reloadData];
+                                                          [self.pageVC refreshCurrentPage];
                                                       }];
 }
 
