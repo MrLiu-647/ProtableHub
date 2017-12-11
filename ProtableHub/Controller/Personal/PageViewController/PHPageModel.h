@@ -8,6 +8,7 @@
 
 #import "DTBaseModel.h"
 #import "PHPageItem.h"
+#import "PHPersonalModel.h"
 
 typedef void(^ResponseBlock)(void);
 

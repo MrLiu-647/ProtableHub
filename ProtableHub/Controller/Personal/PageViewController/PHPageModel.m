@@ -85,6 +85,10 @@
     [NSUserDefaults.standardUserDefaults removeObjectForKey:@"repoInfo"];
     [NSUserDefaults.standardUserDefaults removeObjectForKey:@"followingInfo"];
     [NSUserDefaults.standardUserDefaults removeObjectForKey:@"followerInfo"];
+    [NSUserDefaults.standardUserDefaults removeObjectForKey:@"followers_url"];
+    [NSUserDefaults.standardUserDefaults removeObjectForKey:@"following_url"];
+    [NSUserDefaults.standardUserDefaults removeObjectForKey:@"repos_url"];
+    [NSUserDefaults.standardUserDefaults synchronize];
 }
 
 //存储到本地缓存

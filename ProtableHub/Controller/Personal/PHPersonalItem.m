@@ -64,6 +64,9 @@
         self.repositories = @"*";
         self.followers = @"*";
         self.following = @"*";
+        self.repos_url = nil;
+        self.following_url = nil;
+        self.followers_url = nil;
         [self addMappingRuleProperty:@"repositories" pathInJson:@"public_repos"];
         [self addMappingRuleProperty:@"followers" pathInJson:@"followers"];
         [self addMappingRuleProperty:@"following" pathInJson:@"following"];

@@ -26,6 +26,12 @@
     self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    if(animated) {
+        [self.tableView reloadData];
+    }
+}
+
 -(id)createDataSource {
     _repoDataSource = [[PHRepoDataSource alloc] init];
     return _repoDataSource;
@@ -33,9 +39,11 @@
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
     NSLog(@"子类处理刷新事件");
-    if([NSUserDefaults.standardUserDefaults valueForKey:@"repos_url"]) {
+    if(PHPersonalModel.sharedInstance.detailInfo.repos_url) {
         __weak typeof(self) weakSelf = self;
-        [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"repos_url"] dataClass:[PHRepoItem class] handler:^{
+        [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.repos_url
+                                         dataClass:[PHRepoItem class]
+                                           handler:^{
             [weakSelf.tableView reloadData];
             [weakSelf.tableView.refreshControl endRefreshing];
         }];

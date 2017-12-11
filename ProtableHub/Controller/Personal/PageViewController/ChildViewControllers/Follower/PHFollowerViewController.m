@@ -33,11 +33,17 @@
 }
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
-    if([NSUserDefaults.standardUserDefaults valueForKey:@"followers_url"]) {
+    if(PHPersonalModel.sharedInstance.detailInfo.followers_url) {
         __weak typeof(self) weakSelf = self;
-        [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"followers_url"] dataClass:[PHPageItem class] handler:^{
-            [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"following_url"] dataClass:[PHFollowingItem class] handler:^{
-                [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"repos_url"] dataClass:[PHRepoItem class] handler:^{
+        [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.followers_url
+                                         dataClass:[PHPageItem class]
+                                           handler:^{
+            [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.following_url
+                                             dataClass:[PHFollowingItem class]
+                                               handler:^{
+                [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.repos_url
+                                                 dataClass:[PHRepoItem class]
+                                                   handler:^{
                     [weakSelf.tableView reloadData];
                     [weakSelf.tableView.refreshControl endRefreshing];
                 }];

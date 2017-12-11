@@ -27,6 +27,12 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    if(animated) {
+        [self.tableView reloadData];
+    }
+}
+
 -(id)createDataSource {
     _followingDataSource = [[PHFollowingDataSource alloc] init];
     return _followingDataSource;
@@ -34,9 +40,11 @@
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
     NSLog(@"子类处理刷新事件");
-    if([NSUserDefaults.standardUserDefaults valueForKey:@"following_url"]) {
+    if(PHPersonalModel.sharedInstance.detailInfo.following_url) {
         __weak typeof(self) weakSelf = self;
-        [PHPageModel.sharedInstance getDataWithApi:[NSUserDefaults.standardUserDefaults valueForKey:@"following_url"] dataClass:[PHFollowingItem class] handler:^{
+        [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.following_url
+                                         dataClass:[PHFollowingItem class]
+                                           handler:^{
             [weakSelf.tableView reloadData];
             [weakSelf.tableView.refreshControl endRefreshing];
         }];
