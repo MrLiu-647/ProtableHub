@@ -25,17 +25,23 @@
     self.view.backgroundColor = UIColor.blackColor;
     self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(refresh) name:@"refresh" object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    if(animated) {
-        [self.tableView reloadData];
+    if(PHPageModel.sharedInstance.followingInfo.count == 0) {
+        [self imitatedRefresh];
     }
 }
 
 -(id)createDataSource {
     _followingDataSource = [[PHFollowingDataSource alloc] init];
     return _followingDataSource;
+}
+
+-(void)refresh {
+    [self.tableView reloadData];
 }
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
@@ -51,6 +57,10 @@
     }else {
         [self.tableView.refreshControl endRefreshing];
     }
+}
+
+-(void)dealloc {
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 @end

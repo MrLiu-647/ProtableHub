@@ -25,6 +25,7 @@
         return nil;
     }
     id instance = [[self.containedPages[nextIndex] alloc] init];
+    self.followingVC = instance;
     return instance;
 }
 
@@ -35,6 +36,7 @@
         return nil;
     }
     id instance = [[self.containedPages[nextIndex] alloc] init];
+    self.repoVC = instance;
     return instance;
 }
 

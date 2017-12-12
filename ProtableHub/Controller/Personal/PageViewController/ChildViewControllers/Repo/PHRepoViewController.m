@@ -24,17 +24,23 @@
     self.dataSource = self.repoDataSource;
     self.view.backgroundColor = UIColor.blackColor;
     self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
+    
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(refresh) name:@"refresh" object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    if(animated) {
-        [self.tableView reloadData];
+    if(PHPageModel.sharedInstance.repoInfo.count == 0) {
+        [self imitatedRefresh];
     }
 }
 
 -(id)createDataSource {
     _repoDataSource = [[PHRepoDataSource alloc] init];
     return _repoDataSource;
+}
+
+-(void)refresh {
+    [self.tableView reloadData];
 }
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
@@ -50,6 +56,10 @@
     }else {
         [self.tableView.refreshControl endRefreshing];
     }
+}
+
+-(void)dealloc {
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 @end

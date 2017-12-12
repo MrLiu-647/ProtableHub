@@ -39,6 +39,8 @@
 -(void)clearPageData {
     [PHPageModel.sharedInstance clearModel];
     [self.currentPage refreshData];
+    [self.pageDataSource.repoVC refresh];
+    [self.pageDataSource.followingVC refresh];
 }
 
 @end

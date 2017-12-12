@@ -10,4 +10,6 @@
 
 @interface PHRepoViewController : DTRefreshTableViewController
 
+-(void)refresh;
+
 @end

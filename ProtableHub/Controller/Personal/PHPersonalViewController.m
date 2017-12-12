@@ -92,7 +92,7 @@
                                                       route:@"login/oauth/access_token" handler:^{
                                                           [weakSelf.tableView reloadData];
                                                           [self.pageVC refreshCurrentPage];
-                                                          self.navigationController.navigationBar.topItem.rightBarButtonItem = self.exitItem;
+                                                        self.navigationController.navigationBar.topItem.rightBarButtonItem = self.exitItem;
                                                       }];
 }
 

@@ -38,14 +38,15 @@
         [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.followers_url
                                          dataClass:[PHPageItem class]
                                            handler:^{
+                                               [weakSelf.tableView reloadData];
             [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.following_url
                                              dataClass:[PHFollowingItem class]
                                                handler:^{
                 [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.repos_url
                                                  dataClass:[PHRepoItem class]
                                                    handler:^{
-                    [weakSelf.tableView reloadData];
-                    [weakSelf.tableView.refreshControl endRefreshing];
+                                                       [weakSelf.tableView.refreshControl endRefreshing];
+                                                       [NSNotificationCenter.defaultCenter postNotificationName:@"refresh" object:nil];
                 }];
             }];
         }];
