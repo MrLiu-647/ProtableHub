@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "DTBaseServerAPI.h"
 
+//完整的打印Json信息
+#ifdef DEBUG
+#define SLog(format, ...) printf("class: <%p %s:(%d) > method: %s \n%s\n", self, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __PRETTY_FUNCTION__, [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String] )
+#else
+#define SLog(format, ...)
+#endif
+
 typedef void(^SuccessHandler)(void);
 
 @interface DTBaseModel : NSObject
@@ -26,6 +33,8 @@ typedef void(^SuccessHandler)(void);
 -(instancetype)initWithServerAddress:(NSString *)address;
 
 -(void)lanuchRequestWithParams:(NSDictionary *)params requestMethod:(PHRequestMethod)method route:(NSString *)api handler:(SuccessHandler)handler;
+
+-(void)refreshRequest:(SuccessHandler)handler;
 
 @end
 

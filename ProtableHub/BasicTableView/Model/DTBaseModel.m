@@ -38,6 +38,13 @@
     }];
 }
 
+-(void)refreshRequest:(SuccessHandler)handler {
+    if(handler) {
+        self.successBlock = handler;
+    }
+    [self lanuchRequestWithParams:self.params requestMethod:self.method route:self.api handler:self.successBlock];
+}
+
 -(void)isNeedToHandleData:(DTBaseServerAPI *)response {
     if(response.state == PH_STATE_SUCCESS) {
         if(response.jsonData) {

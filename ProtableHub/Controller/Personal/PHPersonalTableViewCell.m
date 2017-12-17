@@ -13,9 +13,12 @@
 
 @implementation PHPersonalTableViewCell
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    // Configure the view for the selected state
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if(self) {
+        [self buildCellStructure];
+    }
+    return self;
 }
 
 -(void)buildCellStructure {
@@ -44,7 +47,6 @@
 }
 
 -(void)setObject:(id)object {
-    [self buildCellStructure];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [self.userAvatars sd_setImageWithURL:[NSURL URLWithString:((PHPersonalItem *)object).userAvatars]];
@@ -115,9 +117,12 @@
 
 @implementation PHPersonalFameCell
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    // Configure the view for the selected state
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if(self) {
+        [self buildCellStructure];
+    }
+    return self;
 }
 
 -(void)buildCellStructure {
@@ -171,7 +176,6 @@
 }
 
 -(void)setObject:(id)object {
-    [self buildCellStructure];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.repositories.text = ((PHPersonalDetailItem *)object).repositories;
     self.followers.text = ((PHPersonalDetailItem *)object).followers;

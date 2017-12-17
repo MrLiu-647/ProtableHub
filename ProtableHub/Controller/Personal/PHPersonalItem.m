@@ -41,6 +41,7 @@
     [aCoder encodeObject:self.userCreatedDate forKey:@"userCreatedDate"];
     [aCoder encodeObject:self.userSignature forKey:@"userSignature"];
     [aCoder encodeObject:self.userAvatars forKey:@"userAvatars"];
+    [aCoder encodeObject:self.jsonDataMap forKey:@"jsonDataMap"];
 }
 
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
@@ -50,6 +51,7 @@
         self.userSignature = [aDecoder decodeObjectForKey:@"userSignature"];
         self.userCreatedDate = [aDecoder decodeObjectForKey:@"userCreatedDate"];
         self.userAvatars = [aDecoder decodeObjectForKey:@"userAvatars"];
+        self.jsonDataMap = [aDecoder decodeObjectForKey:@"jsonDataMap"];
     }
     return self;
 }
@@ -94,6 +96,7 @@
     [aCoder encodeObject:self.repos_url forKey:@"repos_url"];
     [aCoder encodeObject:self.followers_url forKey:@"followers_url"];
     [aCoder encodeObject:self.following_url forKey:@"following_url"];
+    [aCoder encodeObject:self.jsonDataMap forKey:@"jsonDataMap"];
 }
 
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
@@ -105,6 +108,7 @@
         self.repos_url = [aDecoder decodeObjectForKey:@"repos_url"];
         self.following_url = [aDecoder decodeObjectForKey:@"following_url"];
         self.followers_url = [aDecoder decodeObjectForKey:@"followers_url"];
+        self.jsonDataMap = [aDecoder decodeObjectForKey:@"jsonDataMap"];
     }
     return self;
 }

@@ -35,6 +35,7 @@ typedef void(^PHServerCompletionBlock)(DTBaseServerAPI *);
 
 @property (nonatomic,copy) NSDictionary *requestParams; //请求参数
 @property (nonatomic,copy) NSDictionary *files; //请求文件
+@property (nonatomic,copy) NSDictionary *headParams; //请求头部参数
 @property (nonatomic,copy) PHServerCompletionBlock userBlock;   //回调的block
 
 @property (nonatomic,retain) NSError *errors;   //错误类型
@@ -56,6 +57,22 @@ typedef void(^PHServerCompletionBlock)(DTBaseServerAPI *);
  */
 -(void)requestAPI:(NSString *)api
            params:(NSDictionary *)params
+            files:(NSDictionary *)files
+    requestMethod:(PHRequestMethod)method
+  completionBlock:(PHServerCompletionBlock)block;
+
+/**
+ 访问API 可添加请求头部消息
+
+ @param api 访问指定服务器的资源地址
+ @param params 请求参数
+ @param headParams 请求头参数
+ @param method 请求方法
+ @param block 回调block
+ */
+-(void)requestApi:(NSString *)api
+           params:(NSDictionary *)params
+       headFields:(NSDictionary *)headParams
             files:(NSDictionary *)files
     requestMethod:(PHRequestMethod)method
   completionBlock:(PHServerCompletionBlock)block;

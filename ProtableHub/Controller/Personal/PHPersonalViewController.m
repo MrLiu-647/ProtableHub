@@ -26,6 +26,7 @@
 
 @property (nonatomic,strong) UIBarButtonItem *loginItem;
 @property (nonatomic,strong) UIBarButtonItem *exitItem;
+@property (nonatomic,strong) UIBarButtonItem *refreshItem;
 
 @end
 
@@ -39,8 +40,11 @@
     [self.tableView layoutIfNeeded];
     CGFloat contentHeight = self.tableView.contentSize.height;
     
+    self.navigationController.navigationBar.topItem.leftBarButtonItem = self.refreshItem;
+
     if(![NSUserDefaults.standardUserDefaults valueForKey:@"accessToken"]) {
         self.navigationController.navigationBar.topItem.rightBarButtonItem = self.loginItem;
+        [self.refreshItem setEnabled:false];
     }else {
         self.navigationController.navigationBar.topItem.rightBarButtonItem = self.exitItem;
     }
@@ -52,9 +56,19 @@
     
     __weak typeof(self) weakSelf = self;
     [self.childPageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.view.mas_left);
         make.top.mas_equalTo(contentHeight + 44 + UIApplication.sharedApplication.statusBarFrame.size.height);
         make.width.mas_equalTo(weakSelf.tableView.mas_width);
         make.height.mas_equalTo(realHeight);
+    }];
+}
+
+-(void)refreshRequest {
+    [self.refreshItem setEnabled:false];
+    __weak typeof(self) weakSelf = self;
+    [PHPersonalModel.sharedInstance refreshRequest:^{
+        [weakSelf.tableView reloadData];
+        [weakSelf.refreshItem setEnabled:true];
     }];
 }
 
@@ -71,6 +85,7 @@
     [DTAlertController.sharedInstance showAlertWithController:self title:@"退出" message:nil style:UIAlertControllerStyleActionSheet management:@{@"确定":^{
         [NSUserDefaults.standardUserDefaults removeObjectForKey:@"accessToken"];
         self.navigationController.navigationBar.topItem.rightBarButtonItem = self.loginItem;
+        [self.refreshItem setEnabled:false];
         [self.pageVC clearPageData];
         [PHPersonalModel.sharedInstance clearModel];
         [self.tableView reloadData];
@@ -91,8 +106,9 @@
                                               requestMethod:PH_REQUEST_POST
                                                       route:@"login/oauth/access_token" handler:^{
                                                           [weakSelf.tableView reloadData];
-                                                          [self.pageVC refreshCurrentPage];
-                                                        self.navigationController.navigationBar.topItem.rightBarButtonItem = self.exitItem;
+                                                          [weakSelf.refreshItem setEnabled:true];
+                                                          [weakSelf.pageVC refreshCurrentPage];
+                                                    weakSelf.navigationController.navigationBar.topItem.rightBarButtonItem = weakSelf.exitItem;
                                                       }];
 }
 
@@ -101,6 +117,15 @@
         _pageVC = [[PHDataPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     }
     return _pageVC;
+}
+
+-(UIBarButtonItem *)refreshItem {
+    if(!_refreshItem) {
+        UIImage *refreshImage = [UIImage imageNamed:@"fa-refresh"];
+        _refreshItem = [[UIBarButtonItem alloc] initWithImage:refreshImage style:UIBarButtonItemStylePlain target:self action:@selector(refreshRequest)];
+        _refreshItem.image = [refreshImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    return _refreshItem;
 }
 
 -(UIBarButtonItem *)loginItem {

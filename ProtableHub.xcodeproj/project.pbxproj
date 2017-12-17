@@ -44,6 +44,14 @@
 		0522FFB21FC589380051C7DC /* PHFollowingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFB11FC589380051C7DC /* PHFollowingTableViewCell.m */; };
 		0522FFB51FC5909B0051C7DC /* PHPageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFB41FC5909B0051C7DC /* PHPageItem.m */; };
 		0522FFB91FC68CBF0051C7DC /* DTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0522FFB81FC68CBF0051C7DC /* DTAlertController.m */; };
+		059C8D8A1FE0257E002D5202 /* PHSearchNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8D891FE0257E002D5202 /* PHSearchNavigationViewController.m */; };
+		059C8D8D1FE025E0002D5202 /* PHSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8D8C1FE025E0002D5202 /* PHSearchViewController.m */; };
+		059C8D901FE29672002D5202 /* PHSearchContentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8D8F1FE29672002D5202 /* PHSearchContentManager.m */; };
+		059C8D9A1FE39D73002D5202 /* PHSearchAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8D991FE39D73002D5202 /* PHSearchAccessoryView.m */; };
+		059C8D9D1FE4E635002D5202 /* PHSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8D9C1FE4E635002D5202 /* PHSearchModel.m */; };
+		059C8DA11FE4E66D002D5202 /* PHSearchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8DA01FE4E66D002D5202 /* PHSearchDataSource.m */; };
+		059C8DA41FE4E7E9002D5202 /* PHSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8DA31FE4E7E9002D5202 /* PHSearchTableViewCell.m */; };
+		059C8DBA1FE57259002D5202 /* PHSearchResultItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8DB91FE57259002D5202 /* PHSearchResultItem.m */; };
 		05E493291FC931DD0090250D /* DTBaseServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E493281FC931DD0090250D /* DTBaseServerAPI.m */; };
 		05E4932C1FC942670090250D /* DTBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E4932B1FC942670090250D /* DTBaseModel.m */; };
 		C7F9BC5C2E17D6C1123E1DE8 /* libPods-ProtableHub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A7D618D5E9AF5CA5B9A77 /* libPods-ProtableHub.a */; };
@@ -142,6 +150,22 @@
 		0522FFB41FC5909B0051C7DC /* PHPageItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPageItem.m; sourceTree = "<group>"; };
 		0522FFB71FC68CBF0051C7DC /* DTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTAlertController.h; sourceTree = "<group>"; };
 		0522FFB81FC68CBF0051C7DC /* DTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTAlertController.m; sourceTree = "<group>"; };
+		059C8D881FE0257E002D5202 /* PHSearchNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHSearchNavigationViewController.h; sourceTree = "<group>"; };
+		059C8D891FE0257E002D5202 /* PHSearchNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHSearchNavigationViewController.m; sourceTree = "<group>"; };
+		059C8D8B1FE025E0002D5202 /* PHSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHSearchViewController.h; sourceTree = "<group>"; };
+		059C8D8C1FE025E0002D5202 /* PHSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHSearchViewController.m; sourceTree = "<group>"; };
+		059C8D8E1FE29672002D5202 /* PHSearchContentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHSearchContentManager.h; sourceTree = "<group>"; };
+		059C8D8F1FE29672002D5202 /* PHSearchContentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHSearchContentManager.m; sourceTree = "<group>"; };
+		059C8D981FE39D73002D5202 /* PHSearchAccessoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHSearchAccessoryView.h; sourceTree = "<group>"; };
+		059C8D991FE39D73002D5202 /* PHSearchAccessoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHSearchAccessoryView.m; sourceTree = "<group>"; };
+		059C8D9B1FE4E635002D5202 /* PHSearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHSearchModel.h; sourceTree = "<group>"; };
+		059C8D9C1FE4E635002D5202 /* PHSearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHSearchModel.m; sourceTree = "<group>"; };
+		059C8D9F1FE4E66D002D5202 /* PHSearchDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHSearchDataSource.h; sourceTree = "<group>"; };
+		059C8DA01FE4E66D002D5202 /* PHSearchDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHSearchDataSource.m; sourceTree = "<group>"; };
+		059C8DA21FE4E7E9002D5202 /* PHSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHSearchTableViewCell.h; sourceTree = "<group>"; };
+		059C8DA31FE4E7E9002D5202 /* PHSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHSearchTableViewCell.m; sourceTree = "<group>"; };
+		059C8DB81FE57259002D5202 /* PHSearchResultItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHSearchResultItem.h; sourceTree = "<group>"; };
+		059C8DB91FE57259002D5202 /* PHSearchResultItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHSearchResultItem.m; sourceTree = "<group>"; };
 		05E493271FC931DD0090250D /* DTBaseServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTBaseServerAPI.h; sourceTree = "<group>"; };
 		05E493281FC931DD0090250D /* DTBaseServerAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTBaseServerAPI.m; sourceTree = "<group>"; };
 		05E4932A1FC942670090250D /* DTBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTBaseModel.h; sourceTree = "<group>"; };
@@ -287,6 +311,7 @@
 			children = (
 				051223F31FCD4A28005EFBE6 /* EmbeddedWebView */,
 				0522FF7E1FC417C30051C7DC /* Personal */,
+				059C8D871FE021B7002D5202 /* Search */,
 				0522FF7B1FC417BA0051C7DC /* PHTabBarController.h */,
 				0522FF7C1FC417BA0051C7DC /* PHTabBarController.m */,
 			);
@@ -385,6 +410,37 @@
 				0522FFB81FC68CBF0051C7DC /* DTAlertController.m */,
 			);
 			path = AlertController;
+			sourceTree = "<group>";
+		};
+		059C8D871FE021B7002D5202 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				059C8D9E1FE4E63D002D5202 /* PHSearchTableView */,
+				059C8D8E1FE29672002D5202 /* PHSearchContentManager.h */,
+				059C8D8F1FE29672002D5202 /* PHSearchContentManager.m */,
+				059C8D981FE39D73002D5202 /* PHSearchAccessoryView.h */,
+				059C8D991FE39D73002D5202 /* PHSearchAccessoryView.m */,
+				059C8D881FE0257E002D5202 /* PHSearchNavigationViewController.h */,
+				059C8D891FE0257E002D5202 /* PHSearchNavigationViewController.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		059C8D9E1FE4E63D002D5202 /* PHSearchTableView */ = {
+			isa = PBXGroup;
+			children = (
+				059C8D9B1FE4E635002D5202 /* PHSearchModel.h */,
+				059C8D9C1FE4E635002D5202 /* PHSearchModel.m */,
+				059C8DB81FE57259002D5202 /* PHSearchResultItem.h */,
+				059C8DB91FE57259002D5202 /* PHSearchResultItem.m */,
+				059C8D9F1FE4E66D002D5202 /* PHSearchDataSource.h */,
+				059C8DA01FE4E66D002D5202 /* PHSearchDataSource.m */,
+				059C8DA21FE4E7E9002D5202 /* PHSearchTableViewCell.h */,
+				059C8DA31FE4E7E9002D5202 /* PHSearchTableViewCell.m */,
+				059C8D8B1FE025E0002D5202 /* PHSearchViewController.h */,
+				059C8D8C1FE025E0002D5202 /* PHSearchViewController.m */,
+			);
+			path = PHSearchTableView;
 			sourceTree = "<group>";
 		};
 		05E493251FC931B00090250D /* Model */ = {
@@ -605,7 +661,10 @@
 				0522FFA91FC588960051C7DC /* PHRepoTableViewCell.m in Sources */,
 				0522FF6F1FC4171F0051C7DC /* DTSectionObject.m in Sources */,
 				0522FF9A1FC56F490051C7DC /* PHFollowingViewController.m in Sources */,
+				059C8D901FE29672002D5202 /* PHSearchContentManager.m in Sources */,
 				0522FF731FC4171F0051C7DC /* DTTableViewController.m in Sources */,
+				059C8D8D1FE025E0002D5202 /* PHSearchViewController.m in Sources */,
+				059C8DA11FE4E66D002D5202 /* PHSearchDataSource.m in Sources */,
 				0522FF711FC4171F0051C7DC /* DTTableView.m in Sources */,
 				0522FF971FC55ED10051C7DC /* PHFollowerViewController.m in Sources */,
 				05E493291FC931DD0090250D /* DTBaseServerAPI.m in Sources */,
@@ -618,15 +677,20 @@
 				0522FF871FC418630051C7DC /* PHPersonalItem.m in Sources */,
 				0522FFAF1FC5891A0051C7DC /* PHFollowingDataSource.m in Sources */,
 				050355E41FD94E1B00600B74 /* PHPageModel.m in Sources */,
+				059C8D8A1FE0257E002D5202 /* PHSearchNavigationViewController.m in Sources */,
 				0522FF7D1FC417BA0051C7DC /* PHTabBarController.m in Sources */,
 				0522FF721FC4171F0051C7DC /* DTTableViewCell.m in Sources */,
 				0522FFB21FC589380051C7DC /* PHFollowingTableViewCell.m in Sources */,
+				059C8DBA1FE57259002D5202 /* PHSearchResultItem.m in Sources */,
+				059C8DA41FE4E7E9002D5202 /* PHSearchTableViewCell.m in Sources */,
 				0522FFB91FC68CBF0051C7DC /* DTAlertController.m in Sources */,
+				059C8D9D1FE4E635002D5202 /* PHSearchModel.m in Sources */,
 				050B89891FCE9F5D00AA2A11 /* PHPersonalNavigationViewController.m in Sources */,
 				0522FF9D1FC57FBC0051C7DC /* PHPageViewDataSource.m in Sources */,
 				0522FF6E1FC4171F0051C7DC /* DTBasicItem.m in Sources */,
 				0522FF841FC418280051C7DC /* PHPersonalDataSource.m in Sources */,
 				0522FF901FC558840051C7DC /* PHDataPageViewController.m in Sources */,
+				059C8D9A1FE39D73002D5202 /* PHSearchAccessoryView.m in Sources */,
 				0522FF811FC417E80051C7DC /* PHPersonalTableViewCell.m in Sources */,
 				051223F61FCD4A60005EFBE6 /* PHWebViewController.m in Sources */,
 				0522FF761FC4171F0051C7DC /* DTRefreshTableViewController.m in Sources */,

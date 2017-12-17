@@ -8,12 +8,6 @@
 
 #import "DTBaseItem.h"
 
-@interface DTBaseItem()
-
-@property (nonatomic,strong) NSMutableDictionary *jsonDataMap;
-
-@end
-
 @implementation DTBaseItem
 
 -(NSMutableDictionary *)jsonDataMap {

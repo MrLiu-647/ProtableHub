@@ -8,13 +8,6 @@
 
 #import "PHPersonalModel.h"
 
-//完整的打印Json信息
-#ifdef DEBUG
-#define SLog(format, ...) printf("class: <%p %s:(%d) > method: %s \n%s\n", self, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __PRETTY_FUNCTION__, [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String] )
-#else
-#define SLog(format, ...)
-#endif
-
 @implementation PHPersonalModel
 
 +(PHPersonalModel *)sharedInstance {
@@ -27,7 +20,8 @@
     });
     return model;
 }
-//获取基本信息
+
+//获取基本信息,保存token
 -(void)handleResponseData:(id)response {
     if([NSJSONSerialization isValidJSONObject:response]) {
         NSDictionary *dic1 = [self.basicInfo getJsonPathDic];
@@ -48,12 +42,23 @@
         }
     }
     else {
-        self.accessToken = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-        [NSUserDefaults.standardUserDefaults setValue:self.accessToken forKey:@"accessToken"];
-        self.serverAPI.server = @"https://api.github.com";
-        [self lanuchRequestWithParams:nil requestMethod:PH_REQUEST_GET route:[[NSString alloc] initWithFormat:@"/user?%@",self.accessToken] handler:nil];
+        NSString *tempTokenString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+        if([tempTokenString hasPrefix:@"access_token"]) {
+            NSRange range = [tempTokenString rangeOfString:@"access_token="];
+            self.accessToken = [tempTokenString substringFromIndex:range.length];
+            range = [self.accessToken rangeOfString:@"&"];
+            self.accessToken = [self.accessToken substringToIndex:range.location];
+            [NSUserDefaults.standardUserDefaults setValue:self.accessToken forKey:@"accessToken"];
+            self.serverAPI.server = @"https://api.github.com";
+            [self lanuchRequestWithParams:@{@"access_token":self.accessToken} requestMethod:PH_REQUEST_GET route:@"/user" handler:nil];
+        }
     }
     [NSUserDefaults.standardUserDefaults synchronize];
+}
+
+-(void)refreshRequest:(SuccessHandler)handler {
+    self.serverAPI.server = @"https://api.github.com";
+    [self lanuchRequestWithParams:@{@"access_token":[NSUserDefaults.standardUserDefaults valueForKey:@"accessToken"]} requestMethod:PH_REQUEST_GET route:@"/user" handler:handler];
 }
 
 -(void)storeIntoLocal {

@@ -31,11 +31,6 @@
 }
 
 -(void)requestAPI:(NSString *)api params:(NSDictionary *)params files:(NSDictionary *)files requestMethod:(PHRequestMethod)method completionBlock:(PHServerCompletionBlock)block {
-    if(!self.manager) {
-        self.manager = [AFHTTPSessionManager manager];
-        self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    }
     if(api != nil) {
         if (![api hasPrefix:@"/"]) {
             self.api = [@"/" stringByAppendingString:api];
@@ -95,6 +90,13 @@
     self.state = PH_STATE_LOADING;
 }
 
+-(void)requestApi:(NSString *)api params:(NSDictionary *)params headFields:(NSDictionary *)headParams files:(NSDictionary *)files requestMethod:(PHRequestMethod)method completionBlock:(PHServerCompletionBlock)block {
+    for (NSString *key in headParams) {
+        [self.manager.requestSerializer setValue:headParams[key] forHTTPHeaderField:key];
+    }
+    [self requestAPI:api params:params files:files requestMethod:method completionBlock:block];
+}
+
 -(void)requestAPI:(NSString *)api params:(NSDictionary *)params files:(NSDictionary *)files completionBlock:(PHServerCompletionBlock)block {
     [self requestAPI:api params:params files:files requestMethod:PH_REQUEST_POST completionBlock:block];
 }
@@ -117,6 +119,15 @@
 
 -(void)refreshRequest {
     [self requestAPI:self.api params:self.requestParams files:self.files requestMethod:self.method completionBlock:self.userBlock];
+}
+
+-(AFHTTPSessionManager *)manager {
+    if(!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+        _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        _manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    }
+    return _manager;
 }
 
 @end

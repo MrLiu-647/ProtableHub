@@ -11,6 +11,8 @@
 
 @interface DTBaseItem : DTBasicItem
 
+@property (nonatomic,strong) NSMutableDictionary *jsonDataMap;
+
 -(void)addMappingRuleProperty:(NSString *)propertyName pathInJson:(NSString *)path;
 
 -(NSMutableDictionary *)getJsonPathDic;

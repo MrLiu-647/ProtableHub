@@ -22,8 +22,6 @@
     // Do any additional setup after loading the view.
     self.viewControllers = @[self.personalVC];
     self.navigationBar.topItem.title = @"Profile";
-    self.tabBarItem.title = @"Profile";
-    self.tabBarItem.image = [UIImage imageNamed:@"personal"];
 }
 
 -(PHPersonalViewController *)personalVC {
