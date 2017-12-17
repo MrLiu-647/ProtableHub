@@ -25,8 +25,6 @@
     self.view.backgroundColor = UIColor.blackColor;
     self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(refresh) name:@"refresh" object:nil];
 }
 
 -(id)createDataSource {
@@ -41,9 +39,9 @@
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
     if(PHPersonalModel.sharedInstance.detailInfo.followers_url) {
         __weak typeof(self) weakSelf = self;
-        [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.followers_url dataClass:[PHPageItem class] handler:^{
+        [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.following_url dataClass:[PHFollowingItem class] handler:^{
             [weakSelf.tableView reloadData];
-            [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.following_url dataClass:[PHFollowingItem class] handler:^{
+            [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.followers_url dataClass:[PHPageItem class] handler:^{
                 [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.repos_url dataClass:[PHRepoItem class] handler:^{
                     [weakSelf.tableView.refreshControl endRefreshing];
                     [NSNotificationCenter.defaultCenter postNotificationName:@"refresh" object:nil];
@@ -55,8 +53,8 @@
     }
 }
 
--(void)dealloc {
-    [NSNotificationCenter.defaultCenter removeObserver:self];
+-(void)didSelectObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"select object:%@  at index:%@",((PHFollowingItem *)object).followingDetailUrl,indexPath);
 }
 
 @end

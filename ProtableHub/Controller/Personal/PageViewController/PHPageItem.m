@@ -17,9 +17,11 @@
         self.followerName = @"*";
         self.followerIntro = @"*";
         self.followerUrl = @"*";
+        self.followerDetailUrl = @"*";
         [self addMappingRuleProperty:@"followerIcon" pathInJson:@"avatar_url"];
         [self addMappingRuleProperty:@"followerName" pathInJson:@"login"];
         [self addMappingRuleProperty:@"followerUrl" pathInJson:@"html_url"];
+        [self addMappingRuleProperty:@"followerDetailUrl" pathInJson:@"url"];
     }
     return self;
 }
@@ -38,6 +40,7 @@
     [aCoder encodeObject:self.followerIcon forKey:@"followerIcon"];
     [aCoder encodeObject:self.followerName forKey:@"followerName"];
     [aCoder encodeObject:self.followerUrl forKey:@"followerUrl"];
+    [aCoder encodeObject:self.followerDetailUrl forKey:@"followerDetailUrl"];
 }
 
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
@@ -46,6 +49,7 @@
         self.followerIcon = [aDecoder decodeObjectForKey:@"followerIcon"];
         self.followerName = [aDecoder decodeObjectForKey:@"followerName"];
         self.followerUrl = [aDecoder decodeObjectForKey:@"followerUrl"];
+        self.followerDetailUrl = [aDecoder decodeObjectForKey:@"followerDetailUrl"];
     }
     return self;
 }
@@ -113,9 +117,11 @@
         self.followingName = @"*";
         self.followingIntro = @"*";
         self.followingUrl = @"*";
+        self.followingDetailUrl = @"*";
         [self addMappingRuleProperty:@"followingIcon" pathInJson:@"avatar_url"];
         [self addMappingRuleProperty:@"followingName" pathInJson:@"login"];
         [self addMappingRuleProperty:@"followingUrl" pathInJson:@"html_url"];
+        [self addMappingRuleProperty:@"followingDetailUrl" pathInJson:@"url"];
     }
     return self;
 }
@@ -133,6 +139,7 @@
     [aCoder encodeObject:self.followingIcon forKey:@"followingIcon"];
     [aCoder encodeObject:self.followingName forKey:@"followingName"];
     [aCoder encodeObject:self.followingUrl forKey:@"followingUrl"];
+    [aCoder encodeObject:self.followingDetailUrl forKey:@"followingDetailUrl"];
 }
 
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
@@ -141,6 +148,7 @@
         self.followingName = [aDecoder decodeObjectForKey:@"followingName"];
         self.followingIcon = [aDecoder decodeObjectForKey:@"followingIcon"];
         self.followingUrl = [aDecoder decodeObjectForKey:@"followingUrl"];
+        self.followingDetailUrl = [aDecoder decodeObjectForKey:@"followingDetailUrl"];
     }
     return self;
 }
