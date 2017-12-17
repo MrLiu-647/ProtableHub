@@ -17,7 +17,7 @@
 
 //弱引用,检测pageView当前存在的页面实例
 @property (nonatomic,weak) id repoVC;
-@property (nonatomic,weak) id followingVC;
+@property (nonatomic,weak) id followerVC;
 
 @end
 

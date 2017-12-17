@@ -68,6 +68,7 @@
     __weak typeof(self) weakSelf = self;
     [PHPersonalModel.sharedInstance refreshRequest:^{
         [weakSelf.tableView reloadData];
+        [weakSelf.pageVC refreshCurrentPage];
         [weakSelf.refreshItem setEnabled:true];
     }];
 }

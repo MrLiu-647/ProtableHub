@@ -13,5 +13,6 @@
 @property (nonatomic,strong) UIImageView *followerIcon;
 @property (nonatomic,strong) UILabel *followerName;
 @property (nonatomic,strong) UILabel *followerIntro;
+@property (nonatomic,strong) UILabel *followerUrl;
 
 @end

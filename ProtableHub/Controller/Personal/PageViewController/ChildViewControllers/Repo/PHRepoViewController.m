@@ -44,7 +44,6 @@
 }
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
-    NSLog(@"子类处理刷新事件");
     if(PHPersonalModel.sharedInstance.detailInfo.repos_url) {
         __weak typeof(self) weakSelf = self;
         [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.repos_url

@@ -13,7 +13,7 @@
 -(instancetype)init {
     self = [super init];
     if(self) {
-        self.containedPages = @[[PHRepoViewController class],[PHFollowerViewController class],[PHFollowingViewController class]];
+        self.containedPages = @[[PHRepoViewController class],[PHFollowingViewController class],[PHFollowerViewController class]];
     }
     return self;
 }
@@ -25,7 +25,7 @@
         return nil;
     }
     id instance = [[self.containedPages[nextIndex] alloc] init];
-    self.followingVC = instance;
+    self.followerVC = instance;
     return instance;
 }
 

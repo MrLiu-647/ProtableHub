@@ -35,11 +35,17 @@
         make.top.mas_equalTo(weakSelf.mas_top).offset(5);
         make.left.mas_equalTo(weakSelf.followingIcon.mas_right).offset(5);
     }];
+    [self.contentView addSubview:self.followingUrl];
+    [self.followingUrl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(weakSelf.mas_bottom).offset(-5);
+        make.left.mas_equalTo(weakSelf.followingIcon.mas_right).offset(5);
+    }];
 }
 
 -(void)setObject:(id)object {
     [self.followingIcon sd_setImageWithURL:[NSURL URLWithString:((PHFollowingItem *)object).followingIcon]];
     self.followingName.text = ((PHFollowingItem *)object).followingName;
+    self.followingUrl.text = ((PHFollowingItem *)object).followingUrl;
 }
 
 +(CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
@@ -77,6 +83,15 @@
         _followingIntro.textAlignment = NSTextAlignmentLeft;
     }
     return _followingIntro;
+}
+
+-(UILabel *)followingUrl {
+    if(!_followingUrl) {
+        _followingUrl = [[UILabel alloc] init];
+        _followingUrl.textAlignment = NSTextAlignmentLeft;
+        [_followingUrl setTextColor:[UIColor blueColor]];
+    }
+    return _followingUrl;
 }
 
 @end

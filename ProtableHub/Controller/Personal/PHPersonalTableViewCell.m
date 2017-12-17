@@ -144,11 +144,11 @@
         make.left.equalTo(weakSelf.mas_left).offset(1);
     }];
     UILabel *secondSignal = [[UILabel alloc] init];
-    secondSignal.text = @"Followers";
+    secondSignal.text = @"Followings";
     secondSignal.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:secondSignal];
-    [self.contentView addSubview:self.followers];
-    [self.followers mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.contentView addSubview:self.following];
+    [self.following mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(weakSelf.repositories);
         make.top.equalTo(weakSelf.mas_top);
         make.left.equalTo(weakSelf.repositories.mas_right).offset(1);
@@ -159,14 +159,14 @@
         make.left.equalTo(firstSignal.mas_right).offset(1);
     }];
     UILabel *thirdSignal = [[UILabel alloc] init];
-    thirdSignal.text = @"Followings";
+    thirdSignal.text = @"Followers";
     thirdSignal.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:thirdSignal];
-    [self.contentView addSubview:self.following];
-    [self.following mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.contentView addSubview:self.followers];
+    [self.followers mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(weakSelf.repositories);
         make.top.equalTo(weakSelf.mas_top);
-        make.left.equalTo(weakSelf.followers.mas_right).offset(1);
+        make.left.equalTo(weakSelf.following.mas_right).offset(1);
     }];
     [thirdSignal mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(weakSelf.repositories);

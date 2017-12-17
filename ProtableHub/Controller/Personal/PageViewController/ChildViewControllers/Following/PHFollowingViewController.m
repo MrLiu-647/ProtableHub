@@ -29,12 +29,6 @@
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(refresh) name:@"refresh" object:nil];
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    if(PHPageModel.sharedInstance.followingInfo.count == 0) {
-        [self imitatedRefresh];
-    }
-}
-
 -(id)createDataSource {
     _followingDataSource = [[PHFollowingDataSource alloc] init];
     return _followingDataSource;
@@ -45,14 +39,16 @@
 }
 
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
-    NSLog(@"子类处理刷新事件");
-    if(PHPersonalModel.sharedInstance.detailInfo.following_url) {
+    if(PHPersonalModel.sharedInstance.detailInfo.followers_url) {
         __weak typeof(self) weakSelf = self;
-        [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.following_url
-                                         dataClass:[PHFollowingItem class]
-                                           handler:^{
+        [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.followers_url dataClass:[PHPageItem class] handler:^{
             [weakSelf.tableView reloadData];
-            [weakSelf.tableView.refreshControl endRefreshing];
+            [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.following_url dataClass:[PHFollowingItem class] handler:^{
+                [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.repos_url dataClass:[PHRepoItem class] handler:^{
+                    [weakSelf.tableView.refreshControl endRefreshing];
+                    [NSNotificationCenter.defaultCenter postNotificationName:@"refresh" object:nil];
+                }];
+            }];
         }];
     }else {
         [self.tableView.refreshControl endRefreshing];

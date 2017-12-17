@@ -32,30 +32,28 @@
     return _followerDataSource;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    if(PHPageModel.sharedInstance.followingInfo.count == 0) {
+        [self imitatedRefresh];
+    }
+}
+
 -(void)pullDownToRefresh:(UIRefreshControl *)refreshControl {
-    if(PHPersonalModel.sharedInstance.detailInfo.followers_url) {
+    NSLog(@"子类处理刷新事件");
+    if(PHPersonalModel.sharedInstance.detailInfo.following_url) {
         __weak typeof(self) weakSelf = self;
-        [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.followers_url
-                                         dataClass:[PHPageItem class]
+        [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.following_url
+                                         dataClass:[PHFollowingItem class]
                                            handler:^{
                                                [weakSelf.tableView reloadData];
-            [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.following_url
-                                             dataClass:[PHFollowingItem class]
-                                               handler:^{
-                [PHPageModel.sharedInstance getDataWithApi:PHPersonalModel.sharedInstance.detailInfo.repos_url
-                                                 dataClass:[PHRepoItem class]
-                                                   handler:^{
-                                                       [weakSelf.tableView.refreshControl endRefreshing];
-                                                       [NSNotificationCenter.defaultCenter postNotificationName:@"refresh" object:nil];
-                }];
-            }];
-        }];
+                                               [weakSelf.tableView.refreshControl endRefreshing];
+                                           }];
     }else {
         [self.tableView.refreshControl endRefreshing];
     }
 }
 
--(void)refreshData {
+-(void)refresh {
     [self.tableView reloadData];
 }
 

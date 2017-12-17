@@ -16,8 +16,10 @@
         self.followerIcon = nil;
         self.followerName = @"*";
         self.followerIntro = @"*";
+        self.followerUrl = @"*";
         [self addMappingRuleProperty:@"followerIcon" pathInJson:@"avatar_url"];
         [self addMappingRuleProperty:@"followerName" pathInJson:@"login"];
+        [self addMappingRuleProperty:@"followerUrl" pathInJson:@"html_url"];
     }
     return self;
 }
@@ -35,6 +37,7 @@
 - (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
     [aCoder encodeObject:self.followerIcon forKey:@"followerIcon"];
     [aCoder encodeObject:self.followerName forKey:@"followerName"];
+    [aCoder encodeObject:self.followerUrl forKey:@"followerUrl"];
 }
 
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
@@ -42,6 +45,7 @@
     if(self) {
         self.followerIcon = [aDecoder decodeObjectForKey:@"followerIcon"];
         self.followerName = [aDecoder decodeObjectForKey:@"followerName"];
+        self.followerUrl = [aDecoder decodeObjectForKey:@"followerUrl"];
     }
     return self;
 }
@@ -108,8 +112,10 @@
         self.followingIcon = nil;
         self.followingName = @"*";
         self.followingIntro = @"*";
+        self.followingUrl = @"*";
         [self addMappingRuleProperty:@"followingIcon" pathInJson:@"avatar_url"];
         [self addMappingRuleProperty:@"followingName" pathInJson:@"login"];
+        [self addMappingRuleProperty:@"followingUrl" pathInJson:@"html_url"];
     }
     return self;
 }
@@ -126,6 +132,7 @@
 - (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
     [aCoder encodeObject:self.followingIcon forKey:@"followingIcon"];
     [aCoder encodeObject:self.followingName forKey:@"followingName"];
+    [aCoder encodeObject:self.followingUrl forKey:@"followingUrl"];
 }
 
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
@@ -133,6 +140,7 @@
     if(self) {
         self.followingName = [aDecoder decodeObjectForKey:@"followingName"];
         self.followingIcon = [aDecoder decodeObjectForKey:@"followingIcon"];
+        self.followingUrl = [aDecoder decodeObjectForKey:@"followingUrl"];
     }
     return self;
 }

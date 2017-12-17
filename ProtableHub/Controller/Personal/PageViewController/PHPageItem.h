@@ -14,6 +14,7 @@
 @property (nonatomic,copy) NSString *followerIcon;
 @property (nonatomic,copy) NSString *followerName;
 @property (nonatomic,copy) NSString *followerIntro;
+@property (nonatomic,copy) NSString *followerUrl;
 
 -(instancetype)initWithFollowerIcon:(NSString *)data followerName:(NSString *)name followerIntro:(NSString *)intro;
 
@@ -41,6 +42,7 @@
 @property (nonatomic,copy) NSString *followingIcon;
 @property (nonatomic,copy) NSString *followingName;
 @property (nonatomic,copy) NSString *followingIntro;
+@property (nonatomic,copy) NSString *followingUrl;
 
 -(instancetype)initWithFollowingIcon:(NSString *)data followingName:(NSString *)name followingIntro:(NSString *)intro;
 

@@ -18,7 +18,7 @@
     if(self) {
         DTSectionObject *firstSection = [[DTSectionObject alloc] initWithItemArray:nil];
         firstSection.items = PHPageModel.sharedInstance.followingInfo;
-        firstSection.headTitle = @"Following";
+        firstSection.headTitle = @"Followings";
         self.sections = [NSMutableArray arrayWithObject:firstSection];
     }
     return self;
