@@ -125,6 +125,7 @@
     if(!_manager) {
         _manager = [AFHTTPSessionManager manager];
         _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        _manager.requestSerializer.timeoutInterval = 30;
         _manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     }
     return _manager;

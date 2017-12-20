@@ -51,7 +51,6 @@
             [NSUserDefaults.standardUserDefaults setValue:self.accessToken forKey:@"accessToken"];
             self.serverAPI.server = @"https://api.github.com";
             [self lanuchRequestWithParams:@{@"access_token":self.accessToken} requestMethod:PH_REQUEST_GET route:@"/user" handler:nil];
-            NSLog(@"%@",self.accessToken);
         }
     }
     [NSUserDefaults.standardUserDefaults synchronize];

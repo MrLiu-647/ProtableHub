@@ -113,6 +113,13 @@
                                                       }];
 }
 
+//浏览个人详细信息
+-(void)didSelectObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section == 0) {
+        NSLog(@"%@",((PHPersonalItem *)object).user_url);
+    }
+}
+
 -(PHDataPageViewController *)pageVC {
     if(!_pageVC) {
         _pageVC = [[PHDataPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];

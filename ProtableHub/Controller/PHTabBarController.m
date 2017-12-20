@@ -9,11 +9,15 @@
 #import "PHTabBarController.h"
 #import "PHPersonalNavigationViewController.h"
 #import "PHSearchNavigationViewController.h"
+#import "PHNewsNavigationViewController.h"
+#import "PHTrendingNavigationViewController.h"
 
 @interface PHTabBarController ()
 
 @property (nonatomic,strong) PHPersonalNavigationViewController *personalVC;
 @property (nonatomic,strong) PHSearchNavigationViewController *searchVC;
+@property (nonatomic,strong) PHNewsNavigationViewController *newsVC;
+@property (nonatomic,strong) PHTrendingNavigationViewController *trendingVC;
 
 @end
 
@@ -22,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.viewControllers = @[self.personalVC,self.searchVC];
+    self.viewControllers = @[self.personalVC,self.searchVC,self.newsVC,self.trendingVC];
 }
 
 -(PHPersonalNavigationViewController *)personalVC {
@@ -41,6 +45,24 @@
         _searchVC.tabBarItem.image = [UIImage imageNamed:@"fa-search"];
     }
     return _searchVC;
+}
+
+-(PHNewsNavigationViewController *)newsVC {
+    if(!_newsVC) {
+        _newsVC = [[PHNewsNavigationViewController alloc] init];
+        _newsVC.tabBarItem.title = @"News";
+        _newsVC.tabBarItem.image = [UIImage imageNamed:@"news"];
+    }
+    return _newsVC;
+}
+
+-(PHTrendingNavigationViewController *)trendingVC {
+    if(!_trendingVC) {
+        _trendingVC = [[PHTrendingNavigationViewController alloc] init];
+        _trendingVC.tabBarItem.title = @"Trending";
+        _trendingVC.tabBarItem.image = [UIImage imageNamed:@"trending"];
+    }
+    return _trendingVC;
 }
 
 @end

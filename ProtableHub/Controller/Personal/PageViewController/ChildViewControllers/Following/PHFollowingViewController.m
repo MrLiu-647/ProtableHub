@@ -10,6 +10,8 @@
 #import "PHFollowingDataSource.h"
 #import "PHPageModel.h"
 
+#define OutMostViewController (UINavigationController *)((UIViewController *)[[self.parentViewController.view superview] nextResponder]).parentViewController
+
 @interface PHFollowingViewController ()
 
 @property (nonatomic,strong) PHFollowingDataSource *followingDataSource;
@@ -24,7 +26,7 @@
     self.dataSource = self.followingDataSource;
     self.view.backgroundColor = UIColor.blackColor;
     self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 -(id)createDataSource {
@@ -53,6 +55,7 @@
     }
 }
 
+//浏览关注人的详细信息
 -(void)didSelectObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"select object:%@  at index:%@",((PHFollowingItem *)object).followingDetailUrl,indexPath);
 }

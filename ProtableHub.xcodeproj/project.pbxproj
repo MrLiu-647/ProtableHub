@@ -52,6 +52,10 @@
 		059C8DA11FE4E66D002D5202 /* PHSearchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8DA01FE4E66D002D5202 /* PHSearchDataSource.m */; };
 		059C8DA41FE4E7E9002D5202 /* PHSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8DA31FE4E7E9002D5202 /* PHSearchTableViewCell.m */; };
 		059C8DBA1FE57259002D5202 /* PHSearchResultItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8DB91FE57259002D5202 /* PHSearchResultItem.m */; };
+		059C8DBE1FE96748002D5202 /* PHNewsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8DBD1FE96748002D5202 /* PHNewsNavigationViewController.m */; };
+		059C8DC11FE96771002D5202 /* PHNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8DC01FE96771002D5202 /* PHNewsTableViewController.m */; };
+		059C8DC61FEA26E3002D5202 /* PHTrendingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8DC51FEA26E3002D5202 /* PHTrendingTableViewController.m */; };
+		059C8DC91FEA2710002D5202 /* PHTrendingNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 059C8DC81FEA2710002D5202 /* PHTrendingNavigationViewController.m */; };
 		05E493291FC931DD0090250D /* DTBaseServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E493281FC931DD0090250D /* DTBaseServerAPI.m */; };
 		05E4932C1FC942670090250D /* DTBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E4932B1FC942670090250D /* DTBaseModel.m */; };
 		C7F9BC5C2E17D6C1123E1DE8 /* libPods-ProtableHub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A7D618D5E9AF5CA5B9A77 /* libPods-ProtableHub.a */; };
@@ -166,6 +170,14 @@
 		059C8DA31FE4E7E9002D5202 /* PHSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHSearchTableViewCell.m; sourceTree = "<group>"; };
 		059C8DB81FE57259002D5202 /* PHSearchResultItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHSearchResultItem.h; sourceTree = "<group>"; };
 		059C8DB91FE57259002D5202 /* PHSearchResultItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHSearchResultItem.m; sourceTree = "<group>"; };
+		059C8DBC1FE96748002D5202 /* PHNewsNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHNewsNavigationViewController.h; sourceTree = "<group>"; };
+		059C8DBD1FE96748002D5202 /* PHNewsNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHNewsNavigationViewController.m; sourceTree = "<group>"; };
+		059C8DBF1FE96771002D5202 /* PHNewsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHNewsTableViewController.h; sourceTree = "<group>"; };
+		059C8DC01FE96771002D5202 /* PHNewsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHNewsTableViewController.m; sourceTree = "<group>"; };
+		059C8DC41FEA26E3002D5202 /* PHTrendingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHTrendingTableViewController.h; sourceTree = "<group>"; };
+		059C8DC51FEA26E3002D5202 /* PHTrendingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHTrendingTableViewController.m; sourceTree = "<group>"; };
+		059C8DC71FEA2710002D5202 /* PHTrendingNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHTrendingNavigationViewController.h; sourceTree = "<group>"; };
+		059C8DC81FEA2710002D5202 /* PHTrendingNavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHTrendingNavigationViewController.m; sourceTree = "<group>"; };
 		05E493271FC931DD0090250D /* DTBaseServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTBaseServerAPI.h; sourceTree = "<group>"; };
 		05E493281FC931DD0090250D /* DTBaseServerAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTBaseServerAPI.m; sourceTree = "<group>"; };
 		05E4932A1FC942670090250D /* DTBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTBaseModel.h; sourceTree = "<group>"; };
@@ -312,6 +324,8 @@
 				051223F31FCD4A28005EFBE6 /* EmbeddedWebView */,
 				0522FF7E1FC417C30051C7DC /* Personal */,
 				059C8D871FE021B7002D5202 /* Search */,
+				059C8DBB1FE9235D002D5202 /* News */,
+				059C8DC21FEA26BF002D5202 /* Trending */,
 				0522FF7B1FC417BA0051C7DC /* PHTabBarController.h */,
 				0522FF7C1FC417BA0051C7DC /* PHTabBarController.m */,
 			);
@@ -441,6 +455,28 @@
 				059C8D8C1FE025E0002D5202 /* PHSearchViewController.m */,
 			);
 			path = PHSearchTableView;
+			sourceTree = "<group>";
+		};
+		059C8DBB1FE9235D002D5202 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				059C8DBF1FE96771002D5202 /* PHNewsTableViewController.h */,
+				059C8DC01FE96771002D5202 /* PHNewsTableViewController.m */,
+				059C8DBC1FE96748002D5202 /* PHNewsNavigationViewController.h */,
+				059C8DBD1FE96748002D5202 /* PHNewsNavigationViewController.m */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		059C8DC21FEA26BF002D5202 /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				059C8DC41FEA26E3002D5202 /* PHTrendingTableViewController.h */,
+				059C8DC51FEA26E3002D5202 /* PHTrendingTableViewController.m */,
+				059C8DC71FEA2710002D5202 /* PHTrendingNavigationViewController.h */,
+				059C8DC81FEA2710002D5202 /* PHTrendingNavigationViewController.m */,
+			);
+			path = Trending;
 			sourceTree = "<group>";
 		};
 		05E493251FC931B00090250D /* Model */ = {
@@ -664,8 +700,10 @@
 				059C8D901FE29672002D5202 /* PHSearchContentManager.m in Sources */,
 				0522FF731FC4171F0051C7DC /* DTTableViewController.m in Sources */,
 				059C8D8D1FE025E0002D5202 /* PHSearchViewController.m in Sources */,
+				059C8DC61FEA26E3002D5202 /* PHTrendingTableViewController.m in Sources */,
 				059C8DA11FE4E66D002D5202 /* PHSearchDataSource.m in Sources */,
 				0522FF711FC4171F0051C7DC /* DTTableView.m in Sources */,
+				059C8DBE1FE96748002D5202 /* PHNewsNavigationViewController.m in Sources */,
 				0522FF971FC55ED10051C7DC /* PHFollowerViewController.m in Sources */,
 				05E493291FC931DD0090250D /* DTBaseServerAPI.m in Sources */,
 				051223821FCAA096005EFBE6 /* DTBaseItem.m in Sources */,
@@ -692,8 +730,10 @@
 				0522FF901FC558840051C7DC /* PHDataPageViewController.m in Sources */,
 				059C8D9A1FE39D73002D5202 /* PHSearchAccessoryView.m in Sources */,
 				0522FF811FC417E80051C7DC /* PHPersonalTableViewCell.m in Sources */,
+				059C8DC11FE96771002D5202 /* PHNewsTableViewController.m in Sources */,
 				051223F61FCD4A60005EFBE6 /* PHWebViewController.m in Sources */,
 				0522FF761FC4171F0051C7DC /* DTRefreshTableViewController.m in Sources */,
+				059C8DC91FEA2710002D5202 /* PHTrendingNavigationViewController.m in Sources */,
 				0522FF271FC40AA10051C7DC /* AppDelegate.m in Sources */,
 				0522FF741FC4171F0051C7DC /* DTTableViewDataSource.m in Sources */,
 				0522FF751FC4171F0051C7DC /* DTNavigationTableViewController.m in Sources */,

@@ -24,6 +24,7 @@
     self.dataSource = self.repoDataSource;
     self.view.backgroundColor = UIColor.blackColor;
     self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(refresh) name:@"refresh" object:nil];
 }

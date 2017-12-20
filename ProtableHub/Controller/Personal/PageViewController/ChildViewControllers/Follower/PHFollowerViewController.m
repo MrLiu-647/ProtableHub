@@ -24,7 +24,7 @@
     self.dataSource = self.followerDataSource;
     self.view.backgroundColor = UIColor.blackColor;
     self.tableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(refresh) name:@"refresh" object:nil];
 }
@@ -56,6 +56,10 @@
 
 -(void)refresh {
     [self.tableView reloadData];
+}
+
+-(void)didSelectObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"select object:%@  at index:%@",((PHPageItem *)object).followerDetailUrl,indexPath);
 }
 
 -(void)dealloc {

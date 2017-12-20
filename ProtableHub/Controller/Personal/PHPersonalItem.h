@@ -20,6 +20,8 @@
 @property (nonatomic,copy) NSString *userMail;
 @property (nonatomic,copy) NSString *userLocation;
 
+@property (nonatomic,copy) NSString *user_url;
+
 -(instancetype)initWithMainInfo:(NSString *)avatars
                        userName:(NSString *)name
                       signature:(NSString *)signature

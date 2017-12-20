@@ -17,10 +17,12 @@
         self.userName = @"*";
         self.userSignature = @"*";
         self.userCreatedDate = @"*";
+        self.user_url = nil;
         [self addMappingRuleProperty:@"userName" pathInJson:@"name"];
         [self addMappingRuleProperty:@"userSignature" pathInJson:@"bio"];
         [self addMappingRuleProperty:@"userCreatedDate" pathInJson:@"created_at"];
         [self addMappingRuleProperty:@"userAvatars" pathInJson:@"avatar_url"];
+        [self addMappingRuleProperty:@"user_url" pathInJson:@"url"];
     }
     return self;
 }
@@ -42,6 +44,7 @@
     [aCoder encodeObject:self.userSignature forKey:@"userSignature"];
     [aCoder encodeObject:self.userAvatars forKey:@"userAvatars"];
     [aCoder encodeObject:self.jsonDataMap forKey:@"jsonDataMap"];
+    [aCoder encodeObject:self.user_url forKey:@"user_url"];
 }
 
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder {
@@ -52,6 +55,7 @@
         self.userCreatedDate = [aDecoder decodeObjectForKey:@"userCreatedDate"];
         self.userAvatars = [aDecoder decodeObjectForKey:@"userAvatars"];
         self.jsonDataMap = [aDecoder decodeObjectForKey:@"jsonDataMap"];
+        self.user_url = [aDecoder decodeObjectForKey:@"user_url"];
     }
     return self;
 }
