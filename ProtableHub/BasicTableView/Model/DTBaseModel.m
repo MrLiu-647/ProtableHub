@@ -40,7 +40,7 @@
 
 //交给子类重写即可
 -(void)manageResponseData:(DTBaseServerAPI *)response {
-    NSLog(@"%@",response);
+//    NSLog(@"%@",response);
 }
 
 -(void)refreshRequest:(SuccessHandler)handler {
