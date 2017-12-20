@@ -34,8 +34,13 @@
     __weak typeof(self) weakSelf = self;
     [self.serverAPI requestAPI:self.api params:self.params files:nil requestMethod:self.method completionBlock:^(DTBaseServerAPI *response) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf isNeedToHandleData:response];
+        [strongSelf manageResponseData:response];
     }];
+}
+
+//交给子类重写即可
+-(void)manageResponseData:(DTBaseServerAPI *)response {
+    NSLog(@"%@",response);
 }
 
 -(void)refreshRequest:(SuccessHandler)handler {
@@ -43,48 +48,6 @@
         self.successBlock = handler;
     }
     [self lanuchRequestWithParams:self.params requestMethod:self.method route:self.api handler:self.successBlock];
-}
-
--(void)isNeedToHandleData:(DTBaseServerAPI *)response {
-    if(response.state == PH_STATE_SUCCESS) {
-        if(response.jsonData) {
-            [self handleResponseData:response.jsonData];
-        }
-        else {
-            [self handleResponseData:response.rawData];
-        }
-    }
-}
-
-//子类重写,处理Json数据,这里只对简单的嵌套处理了一下
--(void)handleResponseData:(id)response {
-    Class type = [response classForCoder];
-    
-    Class cls = [self getCurrentItemClass];
-    id instance = [[cls alloc] init];
-    NSMutableDictionary *jsonPath = [instance getJsonPathDic];
-    
-    if(type == [NSMutableArray class]) {
-        for(int i = 0;i < ((NSMutableArray *)response).count;i++) {
-            [self handleResponseData:response[i]];
-        }
-    }
-    else if(type == [NSMutableDictionary class]) {
-        for (NSString *key in jsonPath) {
-            //如果在结果集中找到了和jsonPath中一样的数据,便用KVC赋值
-            if([[response allKeys] containsObject:key]) {
-                //再判断Dictionary中的数据类型
-//                NSLog(@"%@",[response[key] class]);
-                [instance setValue:response[key] forKey:key];
-            }
-            else {
-                NSLog(@"没有找到该属性对应的数据");
-            }
-        }
-    }
-    else {
-        NSLog(@"%@",response);
-    }
 }
 
 -(Class)getCurrentItemClass {

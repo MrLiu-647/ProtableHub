@@ -18,7 +18,14 @@
 
 typedef void(^SuccessHandler)(void);
 
-@interface DTBaseModel : NSObject
+@protocol DTBaseModelDelegate
+
+@required
+-(void)manageResponseData:(DTBaseServerAPI *)response;
+
+@end
+
+@interface DTBaseModel : NSObject <DTBaseModelDelegate>
 
 @property (nonatomic,strong) DTBaseServerAPI *serverAPI;
 

@@ -21,39 +21,41 @@
     return model;
 }
 
-//获取基本信息,保存token
--(void)handleResponseData:(id)response {
-    if([NSJSONSerialization isValidJSONObject:response]) {
-        NSDictionary *dic1 = [self.basicInfo getJsonPathDic];
-        NSDictionary *dic2 = [self.detailInfo getJsonPathDic];
-        for (NSString *key in dic1) {
-            if([[response allKeys] containsObject:dic1[key]]) {
-                [self.basicInfo setValue:response[dic1[key]] forKey:key];
+-(void)manageResponseData:(DTBaseServerAPI *)response {
+    if(response.state == PH_STATE_SUCCESS) {
+        if(response.jsonData) {
+            NSDictionary *dic1 = [self.basicInfo getJsonPathDic];
+            NSDictionary *dic2 = [self.detailInfo getJsonPathDic];
+            for (NSString *key in dic1) {
+                if([[response.jsonData allKeys] containsObject:dic1[key]]) {
+                    [self.basicInfo setValue:response.jsonData[dic1[key]] forKey:key];
+                }
+            }
+            for (NSString *key in dic2) {
+                if([[response.jsonData allKeys] containsObject:dic2[key]]) {
+                    [self.detailInfo setValue:[[NSString alloc] initWithFormat:@"%@",response.jsonData[dic2[key]]] forKey:key];
+                }
+            }
+            if(self.successBlock) {
+                self.successBlock();
+                [self storeIntoLocal];
+            }
+        }else {
+            NSString *tempTokenString = [[NSString alloc] initWithData:response.rawData encoding:NSUTF8StringEncoding];
+            if([tempTokenString hasPrefix:@"access_token"]) {
+                NSRange range = [tempTokenString rangeOfString:@"access_token="];
+                self.accessToken = [tempTokenString substringFromIndex:range.length];
+                range = [self.accessToken rangeOfString:@"&"];
+                self.accessToken = [self.accessToken substringToIndex:range.location];
+                [NSUserDefaults.standardUserDefaults setValue:self.accessToken forKey:@"accessToken"];
+                self.serverAPI.server = @"https://api.github.com";
+                [self lanuchRequestWithParams:@{@"access_token":self.accessToken} requestMethod:PH_REQUEST_GET route:@"/user" handler:nil];
+                [NSUserDefaults.standardUserDefaults synchronize];
             }
         }
-        for (NSString *key in dic2) {
-            if([[response allKeys] containsObject:dic2[key]]) {
-                [self.detailInfo setValue:[[NSString alloc] initWithFormat:@"%@",response[dic2[key]]] forKey:key];
-            }
-        }
-        if(self.successBlock) {
-            self.successBlock();
-            [self storeIntoLocal];
-        }
+    }else {
+        NSLog(@"%@",response.errors);
     }
-    else {
-        NSString *tempTokenString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-        if([tempTokenString hasPrefix:@"access_token"]) {
-            NSRange range = [tempTokenString rangeOfString:@"access_token="];
-            self.accessToken = [tempTokenString substringFromIndex:range.length];
-            range = [self.accessToken rangeOfString:@"&"];
-            self.accessToken = [self.accessToken substringToIndex:range.location];
-            [NSUserDefaults.standardUserDefaults setValue:self.accessToken forKey:@"accessToken"];
-            self.serverAPI.server = @"https://api.github.com";
-            [self lanuchRequestWithParams:@{@"access_token":self.accessToken} requestMethod:PH_REQUEST_GET route:@"/user" handler:nil];
-        }
-    }
-    [NSUserDefaults.standardUserDefaults synchronize];
 }
 
 -(void)refreshRequest:(SuccessHandler)handler {

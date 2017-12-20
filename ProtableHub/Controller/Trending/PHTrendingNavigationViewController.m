@@ -21,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.viewControllers = @[self.trendingVC];
+    self.view.backgroundColor = UIColor.whiteColor;
     self.navigationBar.topItem.title = @"Trending";
 }
 
