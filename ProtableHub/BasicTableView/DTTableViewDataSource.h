@@ -10,8 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "DTSectionObject.h"
 
-@class DTBasicItem;
-
 @protocol DTTableViewDataSourceDelegate
 
 @required

@@ -24,8 +24,8 @@
     __weak typeof(self) weakSelf = self;
     [self.contentView addSubview:self.repoType];
     [self.repoType mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(15, 15));
-        make.top.mas_equalTo(weakSelf.mas_top).offset(5);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+        make.top.mas_equalTo(weakSelf.mas_top).offset(8);
         make.left.mas_equalTo(weakSelf.mas_left).offset(10);
     }];
     [self.contentView addSubview:self.repoName];
